@@ -380,7 +380,7 @@ extension ViewController{
     // MARK: Reset Focus and Exposure
     @objc
     func resetFocusAndExposure(){
-   /*     let device = activeInput.device
+        let device = activeInput.device
         let focusMode = AVCaptureDevice.FocusMode.continuousAutoFocus
         let exposureMode = AVCaptureDevice.ExposureMode.continuousAutoExposure
         
@@ -390,7 +390,7 @@ extension ViewController{
         let sideWidth = previewLayer.bounds.size.width
         let sideHeight = previewLayer.bounds.size.height
         let center = CGPoint(x: 0.5 * sideWidth, y: 0.5 * sideHeight)
-        print("\ncenter: \(center)\n")
+
         guard canResetFocus || canResetExposure else{
             fatalError("DNG， Reset")
         }
@@ -413,7 +413,7 @@ extension ViewController{
         } catch {
             print("Error resetting focus & exposure: \(String(describing: error.localizedDescription))")
         }
-         */
+        
     }
  
 }
