@@ -20,22 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-       /*
+       
         let session = AVAudioSession.sharedInstance()
         
         do {
             try session.setCategory(AVAudioSessionCategoryPlayback)
             try session.setActive(true)
         } catch let error {
-            print("AVFoundation configuration error: \(error.localizedDescription) \n\n AV 配置 有问题")
+            print("AVFoundation configuration error: \(error.localizedDescription) ")
         }
         // This enables The AVAudioSession for background audio
-        // These steps are necessary , because playing video, 画中画， is considered a background task.
-        
-        */
-        
-        
-        
+        // These steps are necessary , because playing video, is considered a background task.
         
         return true
     }

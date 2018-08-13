@@ -11,7 +11,7 @@ import UIKit
 import AVFoundation
 
 
-// import AVKit
+import AVKit
 
 
 // add this import statement
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     
     
     
-    // 最左边
+
     @IBAction func addVideoClip(_ sender: UIButton) {
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -50,7 +50,7 @@ class ViewController: UIViewController {
     
     
     
-    // 左边 第二
+
     @IBAction func addRemoteStream(_ sender: UIButton) {
         let theAlertController = UIAlertController(title: "Add Remote Stream", message: "Enter URL for remote stream.", preferredStyle: .alert)
         
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
         }))
         
         theAlertController.addTextField { (textField) in
-            textField.text = "https://devimages.apple.com.edgekey.net/streaming/examples/bipbop_16x9/bipbop_16x9_variant.m3u8"
+            textField.text = "https://gcs-vimeo.akamaized.net/exp=1534180919~acl=%2A%2F1059046517.mp4%2A~hmac=a006bc421c8bebb0c7301e03c5a97dced757addf3930fd385d89c442ceb59061/vimeo-prod-skyfire-std-us/01/1405/11/282028152/1059046517.mp4"
         }
         
         present(theAlertController, animated: true, completion: nil )
@@ -90,36 +90,30 @@ class ViewController: UIViewController {
     
     
     @IBAction func playAllVideoClips(_ sender: UIButton) {
-     /*   guard videoURLs.count > 0 else {
+        guard videoURLs.count > 0 else {
             return
         }//   First make sure that ,
         //  there are some URLs in the array videoURLs.
-        
-        
         
         var queue = [AVPlayerItem]()
         for url in videoURLs {
             let videoClip = AVPlayerItem(url: url)
             queue.append(videoClip)
-            
-            
+
             //  AVPlayer item contains a lot more informattion about the video asset
             //  than just its location, such as its duration, timebase , and track information ,
             //  as well as properties to observe Reloading and playing back.
-            
-            
+
         }
         
         let queuePlayer = AVQueuePlayer(items: queue)
         //  AVQueuePlayer, subclass of AVPlayer .
         //  providing playback of multiple items in the sequence.
         
-        // queuePlayer.allowsExternalPlayback = false
-        
-        
-        queuePlayer.allowsExternalPlayback = true
-        
-        
+        queuePlayer.allowsExternalPlayback = false
+
+        // queuePlayer.allowsExternalPlayback = true
+
         let playerViewController = AVPlayerViewController()
         playerViewController.allowsPictureInPicturePlayback = true
         playerViewController.player = queuePlayer
@@ -128,7 +122,7 @@ class ViewController: UIViewController {
             playerViewController.player!.play()
         }
         
-        queue = [] */
+        queue = []
     } // play all the video in a table , one after the other
     // This time it plays through the entire list of video clips.
     
@@ -136,20 +130,16 @@ class ViewController: UIViewController {
     
     
     @IBAction func playVideoClip(_ sender: UIButton) {
-    /*    guard currentTableIndex != -1 else {
+        guard currentTableIndex != -1 else {
             return
         }   // First we make sure that a video is selected in the table , by checking current tableIndex
-        
-        
-        
-        
+
         let player = AVPlayer(url: videoURLs[currentTableIndex])
         
-       // player.allowsExternalPlayback = false
+        player.allowsExternalPlayback = false
         //  If you want to stream the video content to external devices like an Apple TV, this would be set to true.
         
-        
-        player.allowsExternalPlayback = true // AirPlay
+        // player.allowsExternalPlayback = true // AirPlay
         
         let playerViewController = AVPlayerViewController()
         playerViewController.allowsPictureInPicturePlayback = true
@@ -160,7 +150,7 @@ class ViewController: UIViewController {
         } //  Notice that
         //  there is a closure here that starts the video playing
         //  once the controller is on the screen.
-        */
+        
     }
     //  there is a full set of playback controls
     //  You can scrub through the video   , rewind
@@ -280,7 +270,6 @@ extension ViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentTableIndex = indexPath.row
         
-        // 在这里， 修改 与 控制
     }
 }
 
