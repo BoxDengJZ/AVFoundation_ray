@@ -19,15 +19,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var flashLabel: UILabel!
     
     //  adding some instances
- /*   let captureSession = AVCaptureSession()
+    let captureSession = AVCaptureSession()
     var previewLayer: AVCaptureVideoPreviewLayer!
     var activeInput: AVCaptureDeviceInput!
-
-    
     let imageOutPut = AVCapturePhotoOutput()
     
     let videoQueue = DispatchQueue.global(qos: .default)
-   */
+   
     var focusMarker: UIImageView = UIImageView.imageViewWithImage(name: "Focus_Point")
     var exposureMarker: UIImageView = UIImageView.imageViewWithImage(name: "Exposure_Point")
  
@@ -36,14 +34,14 @@ class ViewController: UIViewController {
  
     private var adjustingExposureContext: String = "Exposure"
     
- //   private let kExposure = "adjustingExposure"
+    private let kExposure = "adjustingExposure"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-     /*   setupSession()
+        setupSession()
         setupPreview()
-        startSession() */
+        startSession()
     }
     
     
@@ -69,7 +67,7 @@ class ViewController: UIViewController {
     // take selfies
     @IBAction func switchCameras(_ sender: UIButton) {
         //   https://stackoverflow.com/questions/39894630/how-to-get-front-camera-back-camera-and-audio-with-avcapturedevicediscoverysess
-    /*    guard let frontCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front), let backCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else{
+        guard let frontCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front), let backCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) else{
             return;
         }
 
@@ -94,7 +92,7 @@ class ViewController: UIViewController {
         }catch{
             print("Error , switching cameras: \(String(describing: error))")
         }
- */
+ 
     }
     
     
@@ -121,39 +119,21 @@ class ViewController: UIViewController {
     // capture a still image.
     @IBAction func capturePhoto(_ sender: UIButton) {
 
-  /*
         guard PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.authorized else{
             PHPhotoLibrary.requestAuthorization(requestAuthorizationHander)
-            // 这行代码， 好牛逼
+            
             return
         }
-        
         
         // Next, a still image is captured from a sample buffer from the image output connection,
         
         let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
         //      imageOutPut.isHighResolutionCaptureEnabled = true
         imageOutPut.capturePhoto(with: settings, delegate: self)
-        
-        */
-        
-     
+
     }// capturePhoto(_ sender: UIButton)
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     override var prefersStatusBarHidden: Bool{
         return true
@@ -173,10 +153,9 @@ class ViewController: UIViewController {
 extension ViewController{
     
     // MARK:- Set up Session and preview
-    /*
+    
     func setupSession(){
         captureSession.sessionPreset = AVCaptureSession.Preset.high
-        
         // sets the session preset.         This property enables you to customize the quality of the output.
         // The high preset is suitable for taking high resolution photos and video.
 
@@ -202,14 +181,14 @@ extension ViewController{
         }
 
     }
-    */
+    
     
    
     
     // MARK: - Setup session and preview
     func setupPreview() {
         // Configure previewLayer
-   /*     previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+       previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         // The preview Layer is initialized with the capture session.
         
         // AVCaptureVideoPreviewLayer is a subclass of CALayer that enables you to display video as it is being captured.
@@ -218,22 +197,21 @@ extension ViewController{
         previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         // The `videoGravity` determines how the video is displayed within the layer bounds.
         // We set it to preserve the video's aspect ratio, while filling the screen.
-        
-        
+
         camPreview.layer.addSublayer(previewLayer)
-        */
+        
         // Attach tap recognizer for focus & exposure.
         let tapForFoucus = UITapGestureRecognizer(target: self, action: #selector(self.tapToFocus(recognizer:)))
         tapForFoucus.numberOfTapsRequired = 1
-    //    camPreview.addGestureRecognizer(tapForFoucus)
+        camPreview.addGestureRecognizer(tapForFoucus)
  
         let tapForExposure = UITapGestureRecognizer(target: self, action: #selector(self.tapToExpose(recognizer:)))
         tapForExposure.numberOfTapsRequired = 2
         // 单指双击， `tapForExposure` is called , when tapping twice on the preview area,
         
-    //    camPreview.addGestureRecognizer(tapForExposure)
+        camPreview.addGestureRecognizer(tapForExposure)
         
-    //    tapForFoucus.require(toFail: tapForExposure)
+        tapForFoucus.require(toFail: tapForExposure)
         
         let tapForReset = UITapGestureRecognizer(target: self, action: #selector(self.resetFocusAndExposure))
         tapForReset.numberOfTapsRequired = 2
@@ -241,7 +219,7 @@ extension ViewController{
         tapForReset.numberOfTouchesRequired = 2
         //手指数
 
-    //    camPreview.addGestureRecognizer(tapForReset)
+        camPreview.addGestureRecognizer(tapForReset)
         
         // Create marker views.
         camPreview.addSubview(focusMarker)
@@ -252,7 +230,7 @@ extension ViewController{
     
     // MARK: methods to manage the capture session.
     
-  /*  func startSession(){
+    func startSession(){
         if !captureSession.isRunning{
             videoQueue.async {
                 self.captureSession.startRunning()
@@ -263,10 +241,10 @@ extension ViewController{
         // Check to see if the `captureSession` is not already running .
         // if not , then starts it running.
     }
-    */
     
     
-  /*  func stopSession(){
+    
+    func stopSession(){
         if captureSession.isRunning{
             videoQueue.async {
                 self.captureSession.stopRunning()
@@ -275,28 +253,26 @@ extension ViewController{
         // shutting down the session when it is no longer needed.
         
     }// does the opposite ( startSession )
-    */
+    
     
     
     // MARK: Focus Methods
     @objc
     func tapToFocus(recognizer: UIGestureRecognizer){
-     /*   if activeInput.device.isFocusPointOfInterestSupported{
+       if activeInput.device.isFocusPointOfInterestSupported{
             let point = recognizer.location(in: camPreview)
             // The tap location is converted from the `GestureRecognizer` to the preview's coordinates.
-            print("tapToFocus: \(point)")
             
             let pointOfInterest = previewLayer.captureDevicePointConverted(fromLayerPoint: point)
             // Then an other conversion is made from the preview layer, to the coordinate space of the camera.
             
-            
             showMarkerAtPoint(point: point, marker: focusMarker)
             focusAtPoint(pointOfInterest)
-        }*/
+        }
     }
     
 
-    /*
+    
     func focusAtPoint(_ point: CGPoint){
         let device = activeInput.device
         // Make sure the device supports focus on POI and Auto Focus.
@@ -318,17 +294,16 @@ extension ViewController{
             catch{
                 print("Error focusing on POI: \(String(describing: error.localizedDescription))")
             }
-            
-            
+
         }
         // At this time, it is not supported on the front-facing camera.
-    }*/
+    }
     
     
     // MARK: Exposure Methods
     @objc
     func tapToExpose(recognizer: UIGestureRecognizer){
-     /*   if activeInput.device.isExposurePointOfInterestSupported{
+        if activeInput.device.isExposurePointOfInterestSupported{
             let point = recognizer.location(in: camPreview)
             // The tap location is converted from the `GestureRecognizer` to the preview's coordinates.
             
@@ -337,11 +312,11 @@ extension ViewController{
             
             showMarkerAtPoint(point: point, marker: exposureMarker)
             exposeAtPoint(pointOfInterest)
-        }*/
+        }
     }
     
     
-   /*
+   
     func exposeAtPoint(_ point: CGPoint){
         let device = activeInput.device
         if device.isExposurePointOfInterestSupported, device.isFocusModeSupported(.continuousAutoFocus){
@@ -362,11 +337,11 @@ extension ViewController{
                 print("Error Exposing on POI: \(String(describing: error.localizedDescription))")
             }
         }
-    }*/
+    }
     
     
     // MARK: KVO
-    /*
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         //  First , check to make sure that the context matches the adjusting exposure context,
@@ -374,8 +349,7 @@ extension ViewController{
         
         if context == &adjustingExposureContext {
             let device = object as! AVCaptureDevice
-            
-            
+ 
             // then determine if the camera has stopped adjusting exposure , and if the locked mode is supported.
             
             if !device.isAdjustingExposure , device.isExposureModeSupported(.locked){
@@ -401,7 +375,7 @@ extension ViewController{
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
     }
-    */
+
     
     // MARK: Reset Focus and Exposure
     @objc
@@ -544,7 +518,7 @@ extension ViewController: AVCapturePhotoCaptureDelegate{
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?){
         //  CMSampleBuffer: Core Media
         //  CVImageBuffer: Core Video
-  /*      if let imageData = photo.fileDataRepresentation(){
+        if let imageData = photo.fileDataRepresentation(){
            
             // If the sample buffer contains data , it is then converted into a JPEG representaiton.
             
@@ -559,7 +533,7 @@ extension ViewController: AVCapturePhotoCaptureDelegate{
         }
         else{
             print("Error capturing photo: \(String(describing: error?.localizedDescription))")
-        }*/
+        }
     }
     
     
