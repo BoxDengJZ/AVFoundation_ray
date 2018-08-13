@@ -5,9 +5,9 @@ Updates Ray Wenderlich's code for AVFoundation Video to Swift 4
 
 ### The first one: Video Playback 
 
-* [01 - starter](https://github.com//BoxDengJZ/AVFoundation_ray/archive/v1.0.0.zip)
+* [01 - starter](https://github.com/BoxDengJZ/AVFoundation_ray/archive/v1.0.0.zip)
 
-
+* [01 - finished](https://github.com/BoxDengJZ/AVFoundation_ray/archive/v1.0.1.zip)
 
 
 
