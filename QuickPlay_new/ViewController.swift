@@ -11,7 +11,7 @@ import UIKit
 import AVFoundation
 
 
-import AVKit
+// import AVKit
 
 
 // add this import statement
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
     }
     
     
-    // 左边 第三
+    
     @IBAction func deleteVideoClip(_ sender: UIButton) {
         guard currentTableIndex != -1 else {
             return
@@ -89,11 +89,8 @@ class ViewController: UIViewController {
     }
     
     
-    
-    // 靠近右边 第二
-    // 全部部分， 从 列表的 开始 到 结尾
     @IBAction func playAllVideoClips(_ sender: UIButton) {
-        guard videoURLs.count > 0 else {
+     /*   guard videoURLs.count > 0 else {
             return
         }//   First make sure that ,
         //  there are some URLs in the array videoURLs.
@@ -120,7 +117,7 @@ class ViewController: UIViewController {
         // queuePlayer.allowsExternalPlayback = false
         
         
-        queuePlayer.allowsExternalPlayback = true // 隔空 播放
+        queuePlayer.allowsExternalPlayback = true
         
         
         let playerViewController = AVPlayerViewController()
@@ -131,16 +128,15 @@ class ViewController: UIViewController {
             playerViewController.player!.play()
         }
         
-        queue = []
+        queue = [] */
     } // play all the video in a table , one after the other
-    // 播放完了， 应该有 代理 方法， 推出 视频 播放 队列
     // This time it plays through the entire list of video clips.
     
     
     
     
     @IBAction func playVideoClip(_ sender: UIButton) {
-        guard currentTableIndex != -1 else {
+    /*    guard currentTableIndex != -1 else {
             return
         }   // First we make sure that a video is selected in the table , by checking current tableIndex
         
@@ -164,11 +160,10 @@ class ViewController: UIViewController {
         } //  Notice that
         //  there is a closure here that starts the video playing
         //  once the controller is on the screen.
-        
+        */
     }
     //  there is a full set of playback controls
-    //  You can scrub through the video , 什么鬼
-    //  , rewind    , 什么鬼
+    //  You can scrub through the video   , rewind
     //  , fast forward , play , pause , and change the aspect ratio to fill
     //  or fit the video to the screen.
     
