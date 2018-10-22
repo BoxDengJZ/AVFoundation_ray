@@ -32,9 +32,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
     }
 
     
+    // 增加播放完成后， 自动退出
+    @objc func playerItemDidReachEnd(){
+        self.presentedViewController?.dismiss(animated: true, completion: {})
+    }
     
     
 
@@ -62,7 +67,7 @@ class ViewController: UIViewController {
         }))
         
         theAlertController.addTextField { (textField) in
-            textField.text = "https://gcs-vimeo.akamaized.net/exp=1534180919~acl=%2A%2F1059046517.mp4%2A~hmac=a006bc421c8bebb0c7301e03c5a97dced757addf3930fd385d89c442ceb59061/vimeo-prod-skyfire-std-us/01/1405/11/282028152/1059046517.mp4"
+            textField.text = "https://devstreaming-cdn.apple.com/videos/wwdc/2018/236mwbxbxjfsvns4jan/236/hls_vod_mvp.m3u8"
         }
         
         present(theAlertController, animated: true, completion: nil )
