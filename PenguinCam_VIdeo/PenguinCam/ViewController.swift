@@ -136,8 +136,11 @@ class ViewController: UIViewController {
         switch captureMode {
         case .photo:
             capturePhoto()
+            modePicker.isUserInteractionEnabled = true
+            modePicker.alpha = 1
         case .movie:
             captureMovie()
+            
         }
         
     }

@@ -51,4 +51,11 @@ corrected challenge pdf errors.
 拍视频
 
 
+01 , check project folder QuickPlay
+
+
+02,  check project folder PenguinCam
+
+####  03,   check project folder PenguinCam_VIdeo
+第三小节，就看这个工程 PenguinCam_VIdeo 
 

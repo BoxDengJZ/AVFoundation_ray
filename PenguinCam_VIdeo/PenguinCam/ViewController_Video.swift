@@ -17,8 +17,12 @@ extension ViewController{
         guard movieOutput.isRecording == false else {
             print("movieOutput.isRecording\n")
             stopRecording()
+            modePicker.isUserInteractionEnabled = true
+            modePicker.alpha = 1
             return;
         }
+        modePicker.isUserInteractionEnabled = false
+        modePicker.alpha = 0.6
         let connection = movieOutput.connection(with: .video)
         if (connection?.isVideoOrientationSupported)!{
             connection?.videoOrientation = currentVideoOrientation()
