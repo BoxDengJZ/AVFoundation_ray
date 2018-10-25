@@ -21,6 +21,8 @@ Updates Ray Wenderlich's code for AVFoundation Video, <strong>from Swift 2 to Sw
 <hr>
 
 ### The second one: Capturing Media, Images
+拍照
+
 
 * [01 - challenge , 02 - starter ](https://github.com/BoxDengJZ/AVFoundation_ray/archive/v1.0.2.zip)
 
@@ -43,3 +45,10 @@ corrected challenge pdf errors.
 
 
 <hr>
+
+
+### 3: Capturing Media: Video
+拍视频
+
+
+
