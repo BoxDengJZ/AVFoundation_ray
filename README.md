@@ -57,5 +57,7 @@ corrected challenge pdf errors.
 02,  check project folder PenguinCam
 
 ####  03,   check project folder PenguinCam_VIdeo
-第三小节，就看这个工程 PenguinCam_VIdeo 
+第三小节，就看这个工程 
+
+ [PenguinCam_VIdeo ](https://github.com/BoxDengJZ/AVFoundation_ray/archive/v1.0.5.zip) 
 
