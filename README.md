@@ -57,7 +57,30 @@ corrected challenge pdf errors.
 02,  check project folder PenguinCam
 
 ####  03,   check project folder PenguinCam_VIdeo
-第三小节，就看这个工程 
+第三小节，就看这个工程 3_PenguinCam_VIdeo
 
  [PenguinCam_VIdeo ](https://github.com/BoxDengJZ/AVFoundation_ray/archive/v1.0.5.zip) 
 
+2016 年 iOS 10， 拍照的 flashMode 放入 AVCapturePhotoSettings 了，AVCapturePhotoSettings 对象具有原子性， atomic, 添加支持 
+
+
+<hr>
+
+
+### 04: Merging Media
+
+01 , check project folder QuickPlay
+
+
+02,  check project folder PenguinCam
+
+03,   check project folder PenguinCam_VIdeo
+
+####  04, check project folder 4_Merging_media
+第三小节，就看这个工程  4_Merging_media
+
+修改与优化 AVMutableVideoCompositionLayerInstruction 方法，
+动态设置导出路径
+
+
+[Merging Media ](https://github.com/BoxDengJZ/AVFoundation_ray/archive/v1.0.6.zip) 
