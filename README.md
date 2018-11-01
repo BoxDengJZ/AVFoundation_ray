@@ -77,7 +77,7 @@ corrected challenge pdf errors.
 03,   check project folder PenguinCam_VIdeo
 
 ####  04, check project folder 4_Merging_media
-第三小节，就看这个工程  4_Merging_media
+第四小节，就看这个工程  4_Merging_media
 
 修改与优化 AVMutableVideoCompositionLayerInstruction 方法，
 动态设置导出路径
