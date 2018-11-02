@@ -5,7 +5,17 @@ Updates Ray Wenderlich's code for AVFoundation Video, <strong>from Swift 2 to Sw
 <hr>
 
 
-相关博客地址 : [拍照聚焦和曝光，AVFoundation 简明教程 site: juejin](https://juejin.im/post/5bc2123ee51d450e6c75157d)
+相关博客 :
+
+
+[AVFoundation 视频常用套路: 视频合成与导出，拍视频手电筒，拍照闪光灯](https://juejin.im/post/5bdad8746fb9a022852a764c)
+
+
+
+
+[拍照聚焦和曝光，AVFoundation 简明教程 site: juejin](https://juejin.im/post/5bc2123ee51d450e6c75157d)
+
+
 
 
 <hr>
