@@ -1,8 +1,4 @@
-# AVFoundation_ray
-Updates Ray Wenderlich's code for AVFoundation Video, <strong>from Swift 2 to Swift 4 , iOS 9 to iOS 11</strong>, 
-
-
-<hr>
+# AVFoundation 相关的技术点
 
 
 相关博客 :
@@ -94,3 +90,12 @@ corrected challenge pdf errors.
 
 
 [Merging Media ](https://github.com/BoxDengJZ/AVFoundation_ray/archive/v1.0.6.zip) 
+
+
+<hr>
+
+### AVFoundation_ray
+Updates Ray Wenderlich's code for AVFoundation Video, <strong>from Swift 2 to Swift 4 , iOS 9 to iOS 11</strong>, 
+
+
+
