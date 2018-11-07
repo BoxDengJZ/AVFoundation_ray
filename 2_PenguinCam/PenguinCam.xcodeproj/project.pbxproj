@@ -202,13 +202,16 @@
 				TargetAttributes = {
 					23EAD1B420DA36E2005CAD5E = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 					};
 					23EAD1C820DA36E4005CAD5E = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 23EAD1B420DA36E2005CAD5E;
 					};
 					23EAD1D320DA36E4005CAD5E = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 23EAD1B420DA36E2005CAD5E;
 					};
 				};
@@ -452,7 +455,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dengjiangzhou.PenguinCam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -471,7 +474,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dengjiangzhou.PenguinCam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -491,7 +494,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dengjiangzhou.PenguinCamTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PenguinCam.app/PenguinCam";
 			};
@@ -512,7 +515,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dengjiangzhou.PenguinCamTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PenguinCam.app/PenguinCam";
 			};
@@ -532,7 +535,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dengjiangzhou.PenguinCamUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PenguinCam;
 			};
@@ -552,7 +555,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dengjiangzhou.PenguinCamUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PenguinCam;
 			};

@@ -100,16 +100,13 @@ class ViewController: UIViewController {
     
     @IBAction func toSetFlashMode(_ sender: UIButton) {
         
-        
-        
-        
+
     }
-    
-    
+
     
     func requestAuthorizationHander(_ status: PHAuthorizationStatus){
-        UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
-        
+  
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
     }
     
     

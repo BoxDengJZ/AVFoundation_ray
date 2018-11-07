@@ -18,13 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
        
         let session = AVAudioSession.sharedInstance()
         
         do {
-            try session.setCategory(AVAudioSessionCategoryPlayback)
+            try session.setCategory(.playback, mode: .moviePlayback, options: .mixWithOthers)
+            
+            
             try session.setActive(true)
         } catch let error {
             print("AVFoundation configuration error: \(error.localizedDescription) ")
@@ -59,4 +61,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
 

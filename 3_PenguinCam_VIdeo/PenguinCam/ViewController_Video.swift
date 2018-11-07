@@ -77,7 +77,7 @@ extension ViewController{
             imageGenerator.appliesPreferredTrackTransform = true
             
             do{
-                let imageRef: CGImage = try imageGenerator.copyCGImage(at: kCMTimeZero, actualTime: nil)
+                let imageRef: CGImage = try imageGenerator.copyCGImage(at: CMTime.zero, actualTime: nil)
                 let image = UIImage(cgImage: imageRef)
                 self.toSetPhotoThumbnail(image: image)
                 
@@ -242,7 +242,7 @@ extension ViewController{
         
         updateTimer = Timer(timeInterval: 0.5, target: self, selector: #selector(self.updateTimeDisplay), userInfo: nil, repeats: true)
         
-         RunLoop.main.add(updateTimer, forMode: .commonModes)
+         RunLoop.main.add(updateTimer, forMode: RunLoop.Mode.common)
          // RunLoop.main.add(updateTimer, forMode: .defaultRunLoopMode)
     }
     
