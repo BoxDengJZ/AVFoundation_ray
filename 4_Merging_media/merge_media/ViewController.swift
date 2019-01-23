@@ -44,6 +44,8 @@ class ViewController: UIViewController {
             return
         }
         
+        refreshURL()
+        
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
@@ -60,6 +62,8 @@ class ViewController: UIViewController {
         guard currentTableIndex != -1 , activityIndicator.isAnimating == false else {
             return
         }
+        
+        refreshURL()
         
         let theAlert = UIAlertController(title: "删除视频剪辑", message: "确定从合集中删除这个视频片段", preferredStyle: .alert)
         theAlert.addAction(UIAlertAction(title: "不了", style: .cancel))
@@ -200,10 +204,10 @@ class ViewController: UIViewController {
     }
     
     
-    // MARK:- 上面的按钮
-    @IBAction func refreshURL(_ sender: UIButton) {
+    // MARK:- 添加了， 就不用原来导出的视频了
+    func refreshURL() {
         
-        guard videoURLs.count > 0 , activityIndicator.isAnimating == false else{
+        guard videoURLs.count > 0  else{
             return
         }
         

@@ -128,7 +128,7 @@ class ViewController: UIViewController {
     }
     
     func requestAuthorizationHander(_ status: PHAuthorizationStatus){
-        UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         
     }
     
@@ -609,3 +609,8 @@ extension ViewController: AVCapturePhotoCaptureDelegate{
 // https://stackoverflow.com/questions/43059282/using-avcapturephotooutput-in-ios10-nsgenericexception
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+}

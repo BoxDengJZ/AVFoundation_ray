@@ -36,10 +36,7 @@ class ViewController: UIViewController {
     }
 
     
-    // 增加播放完成后， 自动退出
-    @objc func playerItemDidReachEnd(){
-        self.presentedViewController?.dismiss(animated: true, completion: {})
-    }
+    
     
     
 
@@ -93,8 +90,9 @@ class ViewController: UIViewController {
         
     }
     
-    
+    var queuePlayer: AVQueuePlayer?
     @IBAction func playAllVideoClips(_ sender: UIButton) {
+        
         guard videoURLs.count > 0 else {
             return
         }//   First make sure that ,
@@ -111,17 +109,17 @@ class ViewController: UIViewController {
 
         }
         
-        let queuePlayer = AVQueuePlayer(items: queue)
+        queuePlayer = AVQueuePlayer(items: queue)
         //  AVQueuePlayer, subclass of AVPlayer .
         //  providing playback of multiple items in the sequence.
         
         // queuePlayer.allowsExternalPlayback = false
-
-        queuePlayer.allowsExternalPlayback = true
+        
+        queuePlayer!.allowsExternalPlayback = true
 
         let playerViewController = AVPlayerViewController()
         playerViewController.allowsPictureInPicturePlayback = true
-        playerViewController.player = queuePlayer
+        playerViewController.player = queuePlayer!
         
         present(playerViewController, animated: true) {
             playerViewController.player!.play()
@@ -131,10 +129,12 @@ class ViewController: UIViewController {
     } // play all the video in a table , one after the other
     // This time it plays through the entire list of video clips.
     
-    
+
     
     
     @IBAction func playVideoClip(_ sender: UIButton) {
+        
+        
         guard currentTableIndex != -1 else {
             return
         }   // First we make sure that a video is selected in the table , by checking current tableIndex
@@ -164,7 +164,14 @@ class ViewController: UIViewController {
     
     
     
-    
+    // 增加播放完成后， 自动退出
+    @objc func playerItemDidReachEnd(){
+        if let queuePlayer = queuePlayer, let curent = queuePlayer.currentItem, curent != queuePlayer.items().last {
+            
+        } else{
+            self.presentedViewController?.dismiss(animated: true, completion: {})
+        }
+    }
     
     
     override func didReceiveMemoryWarning() {
@@ -172,7 +179,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    deinit {
+        removeNoti()
+    }
+    
+    
+    func removeNoti(){
+        NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: nil)
+    }
 }
 
 
@@ -212,11 +226,8 @@ extension ViewController{
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        
-        
-        let theImagePath: URL = info[UIImagePickerControllerMediaURL] as! URL
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let theImagePath: URL = info[UIImagePickerController.InfoKey.mediaURL] as! URL
         
         // public let UIImagePickerControllerReferenceURL: String // an NSURL that references an asset in the AssetsLibrary framework
         
@@ -279,8 +290,3 @@ extension ViewController: UITableViewDelegate{
 }
 
 
-
-
-
-
-// https://developer.apple.com/documentation/uikit/uiimagepickercontrollermediaurl?language=objc

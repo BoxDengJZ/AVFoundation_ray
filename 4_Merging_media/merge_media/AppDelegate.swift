@@ -43,3 +43,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
+
+
+// 合成导出后的文件 ， 与原始文件的 尺寸，有很多不同。
+//  合成，合成过的文件， 需要重新处理
+
+
+// 拍照不支持，放大缩小

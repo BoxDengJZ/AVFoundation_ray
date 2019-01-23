@@ -107,21 +107,21 @@ class ViewController: UIViewController {
     
     // MARK: - 开启 Live Photo
     
-  
+
     
     @IBAction func switchLivePhtonMode(_ sender: UIButton) {
         livePhotoModeIsOn = !livePhotoModeIsOn
         livePhotoLabel.text = livePhotoModeTextDict[livePhotoModeIsOn]
+
     }
-    
-    
+
     
     
     
     func requestAuthorizationHander(_ status: PHAuthorizationStatus){
-        
+  
         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
-        
+
     }
     
     
@@ -513,8 +513,6 @@ extension ViewController{
     
     
     func captureLivePhoto(){
-        
-        
         let livePhotoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
         
         let livePhotoMovieFileName = UUID().uuidString as NSString
