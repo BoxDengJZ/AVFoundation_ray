@@ -13,13 +13,9 @@ import UIKit
 class QuickLookViewController: UIViewController {
 
     
-    
     @IBOutlet weak var quickLookImage: UIImageView!
     
-    
-    
     var photoImage: UIImage!
-    
     
     
     override func viewDidLoad() {
@@ -29,8 +25,6 @@ class QuickLookViewController: UIViewController {
         quickLookImage.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backTo) )
         quickLookImage.addGestureRecognizer(tapGesture)
-        
-        
         
         if photoImage != nil {
             quickLookImage.image = photoImage
@@ -52,21 +46,4 @@ class QuickLookViewController: UIViewController {
     }
 
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EuD-BP-gdV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EuD-BP-gdV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,29 +37,28 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHF-ZV-l5b" userLabel="setFlashModeButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="56" height="48"/>
+                                        <rect key="frame" x="10" y="0.0" width="39" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="4Op-Wn-fX9"/>
-                                            <constraint firstAttribute="width" constant="56" id="4rf-SE-eMX"/>
                                         </constraints>
-                                        <state key="normal" image="Flash_Icon"/>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="17"/>
+                                        <state key="normal" title="实况:"/>
                                         <connections>
-                                            <action selector="toSetFlashMode:" destination="EuD-BP-gdV" eventType="touchUpInside" id="vwU-py-Y0m"/>
+                                            <action selector="switchLivePhtonMode:" destination="EuD-BP-gdV" eventType="touchUpInside" id="cb7-xI-zBF"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Off" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGc-xC-gQp">
-                                        <rect key="frame" x="42" y="13" width="19.5" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGc-xC-gQp">
+                                        <rect key="frame" x="54" y="13" width="17" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="Kxz-C4-5gw"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="WGc-xC-gQp" firstAttribute="leading" secondItem="6uT-0U-fuj" secondAttribute="leading" constant="42" id="1C6-PV-Q22"/>
                                     <constraint firstAttribute="bottom" secondItem="WGc-xC-gQp" secondAttribute="bottom" constant="14" id="3xP-7V-9ZA"/>
                                     <constraint firstAttribute="bottom" secondItem="bwR-HL-Zx5" secondAttribute="bottom" id="8WW-vd-at7"/>
                                     <constraint firstAttribute="height" constant="48" id="9x4-9I-7bK"/>
@@ -67,9 +66,10 @@
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WGc-xC-gQp" secondAttribute="trailing" constant="20" symbolic="YES" id="Mcf-bn-cMA"/>
                                     <constraint firstAttribute="trailing" secondItem="bwR-HL-Zx5" secondAttribute="trailing" id="Uwf-oX-0r4"/>
                                     <constraint firstAttribute="bottom" secondItem="bwR-HL-Zx5" secondAttribute="bottom" id="Zbp-dz-ba0"/>
-                                    <constraint firstItem="tHF-ZV-l5b" firstAttribute="leading" secondItem="6uT-0U-fuj" secondAttribute="leading" id="a7R-XZ-xAZ"/>
+                                    <constraint firstItem="tHF-ZV-l5b" firstAttribute="leading" secondItem="6uT-0U-fuj" secondAttribute="leading" constant="10" id="a7R-XZ-xAZ"/>
                                     <constraint firstItem="bwR-HL-Zx5" firstAttribute="top" secondItem="6uT-0U-fuj" secondAttribute="top" id="eBy-Y2-0lm"/>
                                     <constraint firstItem="WGc-xC-gQp" firstAttribute="top" secondItem="6uT-0U-fuj" secondAttribute="top" constant="13" id="gbY-8v-1be"/>
+                                    <constraint firstItem="WGc-xC-gQp" firstAttribute="leading" secondItem="tHF-ZV-l5b" secondAttribute="trailing" constant="5" id="iCo-eK-55S"/>
                                     <constraint firstItem="bwR-HL-Zx5" firstAttribute="top" secondItem="6uT-0U-fuj" secondAttribute="top" id="kTH-bg-tb8"/>
                                     <constraint firstAttribute="bottom" secondItem="tHF-ZV-l5b" secondAttribute="bottom" id="t7F-eH-P90"/>
                                     <constraint firstItem="tHF-ZV-l5b" firstAttribute="top" secondItem="6uT-0U-fuj" secondAttribute="top" id="vbl-eR-uHa"/>
@@ -79,7 +79,7 @@
                                 <rect key="frame" x="0.0" y="571" width="375" height="96"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKh-bz-RCv" userLabel="capturePhotoButton">
-                                        <rect key="frame" x="147" y="8" width="80" height="80"/>
+                                        <rect key="frame" x="147.5" y="8" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="701-Ph-GRU"/>
                                         </constraints>
@@ -132,7 +132,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="camPreview" destination="bx8-ry-1cj" id="amf-LL-qkr"/>
-                        <outlet property="flashLabel" destination="WGc-xC-gQp" id="1NW-7C-FAg"/>
+                        <outlet property="livePhotoLabel" destination="WGc-xC-gQp" id="hqY-wA-aLe"/>
                         <outlet property="thumbnail" destination="Gtz-Bd-xWI" id="Za7-0z-Rx0"/>
                     </connections>
                 </viewController>
@@ -176,6 +176,5 @@
     <resources>
         <image name="Camera_Icon" width="28" height="21"/>
         <image name="Capture_Butt" width="80" height="80"/>
-        <image name="Flash_Icon" width="13" height="22"/>
     </resources>
 </document>

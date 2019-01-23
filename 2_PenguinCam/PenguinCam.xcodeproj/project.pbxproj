@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2326EAA7210FFA55004C8C07 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2326EAA6210FFA55004C8C07 /* Utility.swift */; };
 		2326EAAB21104C3E004C8C07 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2326EAAA21104C3E004C8C07 /* Album.swift */; };
+		23BF28ED21F8624D00506A84 /* PhotoCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF28EC21F8624D00506A84 /* PhotoCaptureDelegate.swift */; };
 		23EAD1B920DA36E2005CAD5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAD1B820DA36E2005CAD5E /* AppDelegate.swift */; };
 		23EAD1BB20DA36E2005CAD5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAD1BA20DA36E2005CAD5E /* ViewController.swift */; };
 		23EAD1BE20DA36E2005CAD5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EAD1BC20DA36E2005CAD5E /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		2326EAA6210FFA55004C8C07 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		2326EAAA21104C3E004C8C07 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		23BF28EC21F8624D00506A84 /* PhotoCaptureDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureDelegate.swift; sourceTree = "<group>"; };
 		23EAD1B520DA36E2005CAD5E /* PenguinCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenguinCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EAD1B820DA36E2005CAD5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23EAD1BA20DA36E2005CAD5E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,15 +105,16 @@
 		23EAD1B720DA36E2005CAD5E /* PenguinCam */ = {
 			isa = PBXGroup;
 			children = (
+				2326EAAA21104C3E004C8C07 /* Album.swift */,
 				23EAD1B820DA36E2005CAD5E /* AppDelegate.swift */,
-				23EAD1BA20DA36E2005CAD5E /* ViewController.swift */,
-				23EAD1BC20DA36E2005CAD5E /* Main.storyboard */,
 				23EAD1BF20DA36E4005CAD5E /* Assets.xcassets */,
-				23EAD1C120DA36E4005CAD5E /* LaunchScreen.storyboard */,
 				23EAD1C420DA36E4005CAD5E /* Info.plist */,
+				23EAD1C120DA36E4005CAD5E /* LaunchScreen.storyboard */,
+				23EAD1BC20DA36E2005CAD5E /* Main.storyboard */,
+				23BF28EC21F8624D00506A84 /* PhotoCaptureDelegate.swift */,
 				23EAD1E620DA3770005CAD5E /* QuickLookViewController.swift */,
 				2326EAA6210FFA55004C8C07 /* Utility.swift */,
-				2326EAAA21104C3E004C8C07 /* Album.swift */,
+				23EAD1BA20DA36E2005CAD5E /* ViewController.swift */,
 			);
 			path = PenguinCam;
 			sourceTree = "<group>";
@@ -202,13 +205,16 @@
 				TargetAttributes = {
 					23EAD1B420DA36E2005CAD5E = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 					};
 					23EAD1C820DA36E4005CAD5E = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 23EAD1B420DA36E2005CAD5E;
 					};
 					23EAD1D320DA36E4005CAD5E = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 23EAD1B420DA36E2005CAD5E;
 					};
 				};
@@ -265,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23BF28ED21F8624D00506A84 /* PhotoCaptureDelegate.swift in Sources */,
 				2326EAA7210FFA55004C8C07 /* Utility.swift in Sources */,
 				23EAD1BB20DA36E2005CAD5E /* ViewController.swift in Sources */,
 				23EAD1B920DA36E2005CAD5E /* AppDelegate.swift in Sources */,
@@ -452,7 +459,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dengjiangzhou.PenguinCam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -471,7 +478,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dengjiangzhou.PenguinCam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -491,7 +498,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dengjiangzhou.PenguinCamTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PenguinCam.app/PenguinCam";
 			};
@@ -512,7 +519,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dengjiangzhou.PenguinCamTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PenguinCam.app/PenguinCam";
 			};
@@ -532,7 +539,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dengjiangzhou.PenguinCamUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PenguinCam;
 			};
@@ -552,7 +559,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dengjiangzhou.PenguinCamUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PenguinCam;
 			};

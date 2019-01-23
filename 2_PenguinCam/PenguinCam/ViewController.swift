@@ -16,7 +16,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var camPreview: UIView!
     @IBOutlet weak var thumbnail: UIButton!
-    @IBOutlet weak var flashLabel: UILabel!
+    @IBOutlet weak var livePhotoLabel: UILabel!
+    
+    
+    private var photoCaptureProcessor: PhotoCaptureDelegate!
+    
     
     //  adding some instances
     let captureSession = AVCaptureSession()
@@ -36,6 +40,12 @@ class ViewController: UIViewController {
     
     private let kExposure = "adjustingExposure"
     
+    private var livePhotoModeIsOn = false
+   
+    private var livePhotoModeTextDict = [true: "开",
+                                         false: "关"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -53,7 +63,6 @@ class ViewController: UIViewController {
                 quickLookController.photoImage = image
             }
             else{
-               // quickLookController.photoImage = UIImage(named: "Penguin")
                 quickLookController.photoImage = UIImage(named: "bg")
             }
         }
@@ -96,19 +105,22 @@ class ViewController: UIViewController {
     }
     
     
-    // MARK: - Flash Modes  ,  配置 闪光灯
+    // MARK: - 开启 Live Photo
     
-    @IBAction func toSetFlashMode(_ sender: UIButton) {
-        
-        
-        
-        
+  
+    
+    @IBAction func switchLivePhtonMode(_ sender: UIButton) {
+        livePhotoModeIsOn = !livePhotoModeIsOn
+        livePhotoLabel.text = livePhotoModeTextDict[livePhotoModeIsOn]
     }
     
     
     
+    
+    
     func requestAuthorizationHander(_ status: PHAuthorizationStatus){
-        UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+        
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
         
     }
     
@@ -121,29 +133,35 @@ class ViewController: UIViewController {
 
         guard PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.authorized else{
             PHPhotoLibrary.requestAuthorization(requestAuthorizationHander)
-            
             return
         }
         
+        switch livePhotoModeIsOn {
+        case true:
+            captureLivePhoto()
+        case false:
+            captureStillImage()
+        }
+    }
+    
+
+    
+    func captureStillImage(){
         // Next, a still image is captured from a sample buffer from the image output connection,
         
         let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
         //      imageOutPut.isHighResolutionCaptureEnabled = true
-        imageOutPut.capturePhoto(with: settings, delegate: self)
-
-    }// capturePhoto(_ sender: UIButton)
+        photoCaptureProcessor = PhotoCaptureDelegate(with: settings) { (image: UIImage) in
+            self.toSetPhotoThumbnail(image: image)
+            self.photoCaptureProcessor = nil
+        }
+        imageOutPut.capturePhoto(with: settings, delegate: photoCaptureProcessor)
+    }
     
-
     
     override var prefersStatusBarHidden: Bool{
         return true
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 
@@ -155,9 +173,8 @@ extension ViewController{
     // MARK:- Set up Session and preview
     
     func setupSession(){
-        captureSession.sessionPreset = AVCaptureSession.Preset.high
-        // sets the session preset.         This property enables you to customize the quality of the output.
-        // The high preset is suitable for taking high resolution photos and video.
+        
+        captureSession.sessionPreset = AVCaptureSession.Preset.photo
 
         let camera = AVCaptureDevice.default(for: .video)
         // for the default camera, which is the back-facing camera
@@ -169,15 +186,30 @@ extension ViewController{
                 activeInput = input
                 
                 // create an input object from the camera and add the input to the `captureSession`
-
             }
         } catch {
             print("Error srtting device input: \(error)")
         }
+        do {
+            let audioDevice = AVCaptureDevice.default(for: .audio)
+            let audioDeviceInput = try AVCaptureDeviceInput(device: audioDevice!)
+            
+            if captureSession.canAddInput(audioDeviceInput) {
+                captureSession.addInput(audioDeviceInput)
+            } else {
+                print("Could not add audio device input to the session")
+            }
+        } catch {
+            print("Could not create audio device input: \(error)")
+        }
+        
 
         // set the image output to use jpeg compression, and add the output to the `captureSession`
         if captureSession.canAddOutput(imageOutPut){
             captureSession.addOutput(imageOutPut)
+            
+            imageOutPut.isHighResolutionCaptureEnabled = true
+            imageOutPut.isLivePhotoCaptureEnabled = true
         }
 
     }
@@ -421,53 +453,15 @@ extension ViewController{
 
 
 extension ViewController{
-     // MARK: - Helpers
-    func savePhotoToLibrary(image: UIImage) {
-        let photoLibrary = PHPhotoLibrary.shared()
-        
-        let name = "DNG"
-        var customAlbum = PHAssetCollection.findAlbum()
-        if customAlbum == nil {
-            
-            PHPhotoLibrary.shared().performChanges({
-                PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: name)
 
-            }, completionHandler: { (isV: Bool, error: Error?) in
-                customAlbum = PHAssetCollection.findAlbum()
-                
-                print("Result: \(isV)")
-                self.savePhotoToLibrary(image: image)
-                
-                return
-            })
-        }
-        else{
-            photoLibrary.performChanges({
-                let result = PHAssetChangeRequest.creationRequestForAsset(from: image)
-                let assetImage = result.placeholderForCreatedAsset
-                let albumChangeRequest = PHAssetCollectionChangeRequest(for: customAlbum!)
-                albumChangeRequest!.addAssets([assetImage!] as NSArray)
-                
-            }, completionHandler: { isSuccess, error in
-                if isSuccess {
-                    // Set thumbnail
-                    self.toSetPhotoThumbnail(image: image)
-                }
-                else{
-                    print("Error writing to photo library:  \(error!.localizedDescription)")
-                }
-            })// photoLibrary.performChanges
-        }
-    }
     
-    
+    // MARK: - Helpers
     
     func toSetPhotoThumbnail(image: UIImage) {
         DispatchQueue.main.async {
             self.thumbnail.setBackgroundImage(image, for: .normal)
             self.thumbnail.layer.borderColor = UIColor.white.cgColor
             self.thumbnail.layer.borderWidth = 1.0
-            
         }
     }
     
@@ -514,33 +508,25 @@ extension ViewController{
 }
 
 
-extension ViewController: AVCapturePhotoCaptureDelegate{
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?){
-        //  CMSampleBuffer: Core Media
-        //  CVImageBuffer: Core Video
-        if let imageData = photo.fileDataRepresentation(){
-           
-            // If the sample buffer contains data , it is then converted into a JPEG representaiton.
-            
-            let image = UIImage(data: imageData)
-            // Then an UIImage is created , using the JPEG data
 
-            // and it compiles it with the `penguinPhotoBomb`
-
-            let photoBomb = image?.penguinPhotoBomb(image: image!)
-            self.savePhotoToLibrary(image: photoBomb!)
-            // Lastly , the composited photo is saved to the shared photo library.
+extension ViewController{
+    
+    
+    func captureLivePhoto(){
+        
+        
+        let livePhotoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
+        
+        let livePhotoMovieFileName = UUID().uuidString as NSString
+        let livePhotoMovieFileNameWithExtend = livePhotoMovieFileName.appendingPathExtension("mov")
+        let livePhotoMoviePath = (NSTemporaryDirectory() as NSString).appendingPathComponent(livePhotoMovieFileNameWithExtend!)
+        livePhotoSettings.livePhotoMovieFileURL = URL(fileURLWithPath: livePhotoMoviePath)
+     
+        photoCaptureProcessor = PhotoCaptureDelegate(with: livePhotoSettings) { (image: UIImage) in
+            self.toSetPhotoThumbnail(image: image)
+            self.photoCaptureProcessor = nil
         }
-        else{
-            print("Error capturing photo: \(String(describing: error?.localizedDescription))")
-        }
+        imageOutPut.capturePhoto(with: livePhotoSettings, delegate: photoCaptureProcessor)
     }
     
-    
 }
-
-// https://stackoverflow.com/questions/46478262/taking-photo-with-custom-camera-ios-11-0-swift-4-update-error
-
-
-
-// https://stackoverflow.com/questions/43059282/using-avcapturephotooutput-in-ios10-nsgenericexception
