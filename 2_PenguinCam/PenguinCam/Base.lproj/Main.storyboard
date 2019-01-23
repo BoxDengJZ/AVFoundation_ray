@@ -23,56 +23,47 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6uT-0U-fuj">
-                                <rect key="frame" x="0.0" y="20" width="375" height="48"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwR-HL-Zx5" userLabel="switchCamerasButton">
-                                        <rect key="frame" x="319" y="0.0" width="56" height="48"/>
+                                        <rect key="frame" x="315" y="0.0" width="60" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="56" id="Tn0-Cc-Kf0"/>
-                                            <constraint firstAttribute="height" constant="48" id="otW-au-oRC"/>
+                                            <constraint firstAttribute="width" constant="60" id="Tn0-Cc-Kf0"/>
+                                            <constraint firstAttribute="height" constant="60" id="otW-au-oRC"/>
                                         </constraints>
-                                        <state key="normal" image="Camera_Icon"/>
+                                        <color key="tintColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="FlipCamera"/>
                                         <connections>
                                             <action selector="switchCameras:" destination="EuD-BP-gdV" eventType="touchUpInside" id="KOH-SN-bI6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHF-ZV-l5b" userLabel="setFlashModeButton">
-                                        <rect key="frame" x="10" y="0.0" width="39" height="48"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHF-ZV-l5b" userLabel="setFlashModeButton" customClass="FixedBtn" customModule="PenguinCam" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="5" width="212" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="4Op-Wn-fX9"/>
+                                            <constraint firstAttribute="height" constant="50" id="4Op-Wn-fX9"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="17"/>
-                                        <state key="normal" title="实况:"/>
+                                        <color key="tintColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="实况: 关" image="LivePhotoOFF">
+                                            <color key="titleColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="switchLivePhtonMode:" destination="EuD-BP-gdV" eventType="touchUpInside" id="cb7-xI-zBF"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGc-xC-gQp">
-                                        <rect key="frame" x="54" y="13" width="17" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="Kxz-C4-5gw"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="WGc-xC-gQp" secondAttribute="bottom" constant="14" id="3xP-7V-9ZA"/>
+                                    <constraint firstItem="bwR-HL-Zx5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tHF-ZV-l5b" secondAttribute="trailing" constant="8" symbolic="YES" id="5DQ-qH-P30"/>
                                     <constraint firstAttribute="bottom" secondItem="bwR-HL-Zx5" secondAttribute="bottom" id="8WW-vd-at7"/>
-                                    <constraint firstAttribute="height" constant="48" id="9x4-9I-7bK"/>
+                                    <constraint firstAttribute="height" constant="60" id="9x4-9I-7bK"/>
                                     <constraint firstAttribute="trailing" secondItem="bwR-HL-Zx5" secondAttribute="trailing" id="ClN-ZU-rdx"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WGc-xC-gQp" secondAttribute="trailing" constant="20" symbolic="YES" id="Mcf-bn-cMA"/>
                                     <constraint firstAttribute="trailing" secondItem="bwR-HL-Zx5" secondAttribute="trailing" id="Uwf-oX-0r4"/>
                                     <constraint firstAttribute="bottom" secondItem="bwR-HL-Zx5" secondAttribute="bottom" id="Zbp-dz-ba0"/>
                                     <constraint firstItem="tHF-ZV-l5b" firstAttribute="leading" secondItem="6uT-0U-fuj" secondAttribute="leading" constant="10" id="a7R-XZ-xAZ"/>
                                     <constraint firstItem="bwR-HL-Zx5" firstAttribute="top" secondItem="6uT-0U-fuj" secondAttribute="top" id="eBy-Y2-0lm"/>
-                                    <constraint firstItem="WGc-xC-gQp" firstAttribute="top" secondItem="6uT-0U-fuj" secondAttribute="top" constant="13" id="gbY-8v-1be"/>
-                                    <constraint firstItem="WGc-xC-gQp" firstAttribute="leading" secondItem="tHF-ZV-l5b" secondAttribute="trailing" constant="5" id="iCo-eK-55S"/>
                                     <constraint firstItem="bwR-HL-Zx5" firstAttribute="top" secondItem="6uT-0U-fuj" secondAttribute="top" id="kTH-bg-tb8"/>
-                                    <constraint firstAttribute="bottom" secondItem="tHF-ZV-l5b" secondAttribute="bottom" id="t7F-eH-P90"/>
-                                    <constraint firstItem="tHF-ZV-l5b" firstAttribute="top" secondItem="6uT-0U-fuj" secondAttribute="top" id="vbl-eR-uHa"/>
+                                    <constraint firstItem="tHF-ZV-l5b" firstAttribute="top" secondItem="6uT-0U-fuj" secondAttribute="top" constant="5" id="vbl-eR-uHa"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0SB-Vc-cyr" userLabel="Bottom Controls">
@@ -132,13 +123,14 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="camPreview" destination="bx8-ry-1cj" id="amf-LL-qkr"/>
-                        <outlet property="livePhotoLabel" destination="WGc-xC-gQp" id="hqY-wA-aLe"/>
+                        <outlet property="switchCameraButton" destination="bwR-HL-Zx5" id="vTR-Td-wSh"/>
+                        <outlet property="switchLivePhotoBtn" destination="tHF-ZV-l5b" id="yOZ-wh-pWI"/>
                         <outlet property="thumbnail" destination="Gtz-Bd-xWI" id="Za7-0z-Rx0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IFF-3o-iPH" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2" y="228"/>
+            <point key="canvasLocation" x="-2.3999999999999999" y="227.13643178410797"/>
         </scene>
         <!--Quick Look View Controller-->
         <scene sceneID="2Ht-ux-hx1">
@@ -174,7 +166,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Camera_Icon" width="28" height="21"/>
         <image name="Capture_Butt" width="80" height="80"/>
+        <image name="FlipCamera" width="150" height="150"/>
+        <image name="LivePhotoOFF" width="150" height="150"/>
     </resources>
 </document>

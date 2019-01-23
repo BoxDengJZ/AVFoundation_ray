@@ -19,8 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var livePhotoLabel: UILabel!
     
     
-    private var photoCaptureProcessor: PhotoCaptureDelegate!
-    
+    @IBOutlet weak var switchLivePhotoBtn: UIButton!
+    @IBOutlet weak var switchCameraButton: UIButton!
     
     //  adding some instances
     let captureSession = AVCaptureSession()
@@ -41,14 +41,12 @@ class ViewController: UIViewController {
     private let kExposure = "adjustingExposure"
     
     private var livePhotoModeIsOn = false
-   
-    private var livePhotoModeTextDict = [true: "开",
-                                         false: "关"]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+   
         setupSession()
         setupPreview()
         startSession()
@@ -107,11 +105,17 @@ class ViewController: UIViewController {
     
     // MARK: - 开启 Live Photo
     
-
+    private var livePhotoModeTextDict = [true: "实况: 开",
+                                         false: "实况: 关"]
+    
+    private var livePhotoModeImageDict = [true: "LivePhotoON",
+                                         false: "LivePhotoOFF"]
+    
     
     @IBAction func switchLivePhtonMode(_ sender: UIButton) {
         livePhotoModeIsOn = !livePhotoModeIsOn
-        livePhotoLabel.text = livePhotoModeTextDict[livePhotoModeIsOn]
+        switchLivePhotoBtn.setTitle(livePhotoModeTextDict[livePhotoModeIsOn], for: UIControl.State.normal)
+        switchLivePhotoBtn.setImage(UIImage(named: livePhotoModeImageDict[livePhotoModeIsOn]!)!, for: .normal)
 
     }
 
@@ -144,17 +148,18 @@ class ViewController: UIViewController {
         }
     }
     
-
+    private var inProgressPhotoCaptureDelegates = [Int64: PhotoCaptureDelegate]()
     
     func captureStillImage(){
         // Next, a still image is captured from a sample buffer from the image output connection,
         
         let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
         //      imageOutPut.isHighResolutionCaptureEnabled = true
-        photoCaptureProcessor = PhotoCaptureDelegate(with: settings) { (image: UIImage) in
+        let photoCaptureProcessor = PhotoCaptureDelegate(with: settings) { (image: UIImage, photoCaptureProcessor: PhotoCaptureDelegate) in
             self.toSetPhotoThumbnail(image: image)
-            self.photoCaptureProcessor = nil
+            self.inProgressPhotoCaptureDelegates[photoCaptureProcessor.requestedPhotoSettings.uniqueID] = nil
         }
+        self.inProgressPhotoCaptureDelegates[photoCaptureProcessor.requestedPhotoSettings.uniqueID] = photoCaptureProcessor
         imageOutPut.capturePhoto(with: settings, delegate: photoCaptureProcessor)
     }
     
@@ -520,10 +525,12 @@ extension ViewController{
         let livePhotoMoviePath = (NSTemporaryDirectory() as NSString).appendingPathComponent(livePhotoMovieFileNameWithExtend!)
         livePhotoSettings.livePhotoMovieFileURL = URL(fileURLWithPath: livePhotoMoviePath)
      
-        photoCaptureProcessor = PhotoCaptureDelegate(with: livePhotoSettings) { (image: UIImage) in
+        let photoCaptureProcessor = PhotoCaptureDelegate(with: livePhotoSettings) { (image: UIImage, photoCaptureProcessor: PhotoCaptureDelegate) in
             self.toSetPhotoThumbnail(image: image)
-            self.photoCaptureProcessor = nil
+            self.inProgressPhotoCaptureDelegates[photoCaptureProcessor.requestedPhotoSettings.uniqueID] = nil
         }
+        self.inProgressPhotoCaptureDelegates[photoCaptureProcessor.requestedPhotoSettings.uniqueID] = photoCaptureProcessor
+        
         imageOutPut.capturePhoto(with: livePhotoSettings, delegate: photoCaptureProcessor)
     }
     

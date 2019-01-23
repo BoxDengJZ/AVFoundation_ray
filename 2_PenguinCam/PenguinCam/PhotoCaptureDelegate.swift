@@ -15,9 +15,9 @@ class PhotoCaptureDelegate: NSObject {
     private(set) var requestedPhotoSettings: AVCapturePhotoSettings
     private var photoData: Data?
     private var livePhotoCompanionMovieURL: URL?
-    private let completionHandler: (UIImage) -> Void
+    private let completionHandler: (_ image: UIImage, _ photoCaptureProcessor: PhotoCaptureDelegate) -> Void
     
-    init(with requestedPhotoSettings: AVCapturePhotoSettings, completionHandler: @escaping (UIImage) -> Void){
+    init(with requestedPhotoSettings: AVCapturePhotoSettings, completionHandler: @escaping (UIImage, PhotoCaptureDelegate) -> Void){
         self.requestedPhotoSettings = requestedPhotoSettings
         self.completionHandler = completionHandler
     }
@@ -45,15 +45,20 @@ extension PhotoCaptureDelegate: AVCapturePhotoCaptureDelegate{
         //  CMSampleBuffer: Core Media
         //  CVImageBuffer: Core Video
         
-        if let imageData = photo.fileDataRepresentation(){
-            
+        
+        if self.requestedPhotoSettings.livePhotoMovieFileURL != nil , let imageData = photo.fileDataRepresentation(){
+        
             // 这里是 Live Photo , 实况照片用的，
-            photoData = photo.fileDataRepresentation()
-            
-            // 下面是 still image, 静态照片
-            
-            // 不同的逻辑
-            
+            photoData = imageData
+            return
+        }
+        
+        
+        // 下面是 still image, 静态照片
+        
+        // 不同的逻辑
+        
+        if let imageData = photo.fileDataRepresentation(){
             
             // If the sample buffer contains data , it is then converted into a JPEG representaiton.
             
@@ -184,7 +189,7 @@ extension PhotoCaptureDelegate{
             }, completionHandler: { isSuccess, error in
                 if isSuccess {
                     // Set thumbnail
-                    self.completionHandler(image)
+                    self.completionHandler(image, self)
                 }
                 else{
                     print("Error writing to photo library:  \(error!.localizedDescription)")

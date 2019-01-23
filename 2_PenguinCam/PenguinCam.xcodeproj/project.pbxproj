@@ -10,6 +10,7 @@
 		2326EAA7210FFA55004C8C07 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2326EAA6210FFA55004C8C07 /* Utility.swift */; };
 		2326EAAB21104C3E004C8C07 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2326EAAA21104C3E004C8C07 /* Album.swift */; };
 		23BF28ED21F8624D00506A84 /* PhotoCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF28EC21F8624D00506A84 /* PhotoCaptureDelegate.swift */; };
+		23BF28F021F8AFB400506A84 /* FixedBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF28EF21F8AFB400506A84 /* FixedBtn.swift */; };
 		23EAD1B920DA36E2005CAD5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAD1B820DA36E2005CAD5E /* AppDelegate.swift */; };
 		23EAD1BB20DA36E2005CAD5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAD1BA20DA36E2005CAD5E /* ViewController.swift */; };
 		23EAD1BE20DA36E2005CAD5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EAD1BC20DA36E2005CAD5E /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 		2326EAA6210FFA55004C8C07 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		2326EAAA21104C3E004C8C07 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		23BF28EC21F8624D00506A84 /* PhotoCaptureDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureDelegate.swift; sourceTree = "<group>"; };
+		23BF28EF21F8AFB400506A84 /* FixedBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedBtn.swift; sourceTree = "<group>"; };
 		23EAD1B520DA36E2005CAD5E /* PenguinCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenguinCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EAD1B820DA36E2005CAD5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23EAD1BA20DA36E2005CAD5E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23BF28EE21F8AFA100506A84 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				23BF28EF21F8AFB400506A84 /* FixedBtn.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		23EAD1AC20DA36E2005CAD5E = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +115,7 @@
 		23EAD1B720DA36E2005CAD5E /* PenguinCam */ = {
 			isa = PBXGroup;
 			children = (
+				23BF28EE21F8AFA100506A84 /* View */,
 				2326EAAA21104C3E004C8C07 /* Album.swift */,
 				23EAD1B820DA36E2005CAD5E /* AppDelegate.swift */,
 				23EAD1BF20DA36E4005CAD5E /* Assets.xcassets */,
@@ -275,6 +286,7 @@
 				2326EAA7210FFA55004C8C07 /* Utility.swift in Sources */,
 				23EAD1BB20DA36E2005CAD5E /* ViewController.swift in Sources */,
 				23EAD1B920DA36E2005CAD5E /* AppDelegate.swift in Sources */,
+				23BF28F021F8AFB400506A84 /* FixedBtn.swift in Sources */,
 				23EAD1E720DA3770005CAD5E /* QuickLookViewController.swift in Sources */,
 				2326EAAB21104C3E004C8C07 /* Album.swift in Sources */,
 			);
