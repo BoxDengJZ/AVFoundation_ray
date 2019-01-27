@@ -6,11 +6,11 @@ target 'PenguinCam' do
   use_frameworks!
 
   # Pods for PenguinCam
-
+  pod 'RxSwift'
+  pod 'RxCocoa'
   target 'PenguinCamTests' do
     inherit! :search_paths
-    pod 'RxSwift'
-    pod 'RxCocoa'
+    
     # Pods for testing
   end
 

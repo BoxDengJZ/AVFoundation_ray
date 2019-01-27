@@ -10,6 +10,11 @@ import UIKit
 import Photos
 import PhotosUI
 
+
+//
+import RxSwift
+import RxCocoa
+
 // 看照片的 
 class QuickLookViewController: UIViewController {
 
@@ -21,24 +26,35 @@ class QuickLookViewController: UIViewController {
     var photoImage: UIImage!
     var isLivePhoto = false
     
+    
+    let disposedBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         quickLookImage.isUserInteractionEnabled = true
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backTo) )
+        let tapGesture = UITapGestureRecognizer()
         quickLookImage.addGestureRecognizer(tapGesture)
         
-        
         livePhotoView.isUserInteractionEnabled = true
-        let dissLiveGesture = UITapGestureRecognizer(target: self, action: #selector(backTo) )
-        livePhotoView.addGestureRecognizer(dissLiveGesture)
+        let dissGesture = UITapGestureRecognizer()
+        livePhotoView.addGestureRecognizer(dissGesture)
         
-        let playLiveGesture = UITapGestureRecognizer(target: self, action: #selector(playAlive) )
+        tapGesture.rx.event.bind(onNext: {[weak self] (gestureRecognizer: UITapGestureRecognizer) in
+            self?.dismiss(animated: true, completion: nil)
+        }).disposed(by: disposedBag )
+        dissGesture.rx.event.bind(onNext: {[weak self] (gestureRecognizer: UITapGestureRecognizer) in
+            self?.dismiss(animated: true, completion: nil)
+        }).disposed(by: disposedBag )
+        
+        let playLiveGesture = UITapGestureRecognizer()
         playLiveGesture.numberOfTouchesRequired = 2
         livePhotoView.addGestureRecognizer(playLiveGesture)
         
-        
+        playLiveGesture.rx.event.bind {[weak self] _ in
+            self?.livePhotoView.startPlayback(with: .full)
+        }.disposed(by: disposedBag )
         
         if photoImage != nil {
             quickLookImage.image = photoImage
@@ -70,27 +86,10 @@ class QuickLookViewController: UIViewController {
     }
 
     
-    @objc
-    func backTo(){
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @objc
-    func playAlive(){
-        
-        self.livePhotoView.startPlayback(with: .full)
-    }
-    
-    
-    
     override var prefersStatusBarHidden: Bool{
         return true
     }
 
-    
-    
-    
-    
     
     func fetchLatestPhotos() -> PHAsset {
         
