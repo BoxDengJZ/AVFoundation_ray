@@ -143,13 +143,21 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nAm-ph-wlN">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vkC-hK-d8B" customClass="PHLivePhotoView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="e9R-9k-uWv" firstAttribute="bottom" secondItem="nAm-ph-wlN" secondAttribute="bottom" id="6QX-PT-IHk"/>
-                            <constraint firstItem="nAm-ph-wlN" firstAttribute="top" secondItem="e9R-9k-uWv" secondAttribute="top" id="GiS-Qm-qKq"/>
+                            <constraint firstItem="e9R-9k-uWv" firstAttribute="bottom" secondItem="vkC-hK-d8B" secondAttribute="bottom" id="4uZ-9q-UUa"/>
+                            <constraint firstItem="vkC-hK-d8B" firstAttribute="leading" secondItem="e9R-9k-uWv" secondAttribute="leading" id="D7v-eK-inZ"/>
+                            <constraint firstItem="nAm-ph-wlN" firstAttribute="top" secondItem="e9R-9k-uWv" secondAttribute="top" id="HQC-wU-LZJ"/>
+                            <constraint firstItem="nAm-ph-wlN" firstAttribute="trailing" secondItem="e9R-9k-uWv" secondAttribute="trailing" id="Mes-wf-N6g"/>
                             <constraint firstItem="nAm-ph-wlN" firstAttribute="leading" secondItem="e9R-9k-uWv" secondAttribute="leading" id="QNW-E9-otd"/>
-                            <constraint firstItem="e9R-9k-uWv" firstAttribute="trailing" secondItem="nAm-ph-wlN" secondAttribute="trailing" id="yMd-vQ-irT"/>
+                            <constraint firstItem="nAm-ph-wlN" firstAttribute="bottom" secondItem="e9R-9k-uWv" secondAttribute="bottom" id="T8E-Kt-FhK"/>
+                            <constraint firstItem="vkC-hK-d8B" firstAttribute="top" secondItem="e9R-9k-uWv" secondAttribute="top" id="npv-aT-Ivz"/>
+                            <constraint firstItem="e9R-9k-uWv" firstAttribute="trailing" secondItem="vkC-hK-d8B" secondAttribute="trailing" id="wql-OL-f5x"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="e9R-9k-uWv"/>
                     </view>
@@ -157,12 +165,13 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="livePhotoView" destination="vkC-hK-d8B" id="FHv-7h-qFz"/>
                         <outlet property="quickLookImage" destination="nAm-ph-wlN" id="Ubh-EY-Orn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5I-s3-PgR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="849" y="220"/>
+            <point key="canvasLocation" x="846" y="227"/>
         </scene>
     </scenes>
     <resources>

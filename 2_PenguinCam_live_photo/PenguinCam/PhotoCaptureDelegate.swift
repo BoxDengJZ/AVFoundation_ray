@@ -15,11 +15,11 @@ class PhotoCaptureDelegate: NSObject {
     private(set) var requestedPhotoSettings: AVCapturePhotoSettings
     private var photoData: Data?
     private var livePhotoCompanionMovieURL: URL?
-    private let completionHandler: (_ image: UIImage, _ photoCaptureProcessor: PhotoCaptureDelegate) -> Void
+    private let handleImageCompletionHandler: (_ image: UIImage, _ uniqueID: Int64) -> Void
     
-    init(with requestedPhotoSettings: AVCapturePhotoSettings, completionHandler: @escaping (UIImage, PhotoCaptureDelegate) -> Void){
+    init(with requestedPhotoSettings: AVCapturePhotoSettings, completionHandler: @escaping (UIImage, Int64) -> Void){
         self.requestedPhotoSettings = requestedPhotoSettings
-        self.completionHandler = completionHandler
+        self.handleImageCompletionHandler = completionHandler
     }
     
     private func didFinish() {
@@ -41,6 +41,8 @@ class PhotoCaptureDelegate: NSObject {
 
 extension PhotoCaptureDelegate: AVCapturePhotoCaptureDelegate{
     /// - Tag: DidFinishProcessingPhoto
+    //  系统，拍静态照片走
+    //  拍实况照片走
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?){
         //  CMSampleBuffer: Core Media
         //  CVImageBuffer: Core Video
@@ -67,7 +69,7 @@ extension PhotoCaptureDelegate: AVCapturePhotoCaptureDelegate{
             
             // and it compiles it with the `penguinPhotoBomb`
             
-            let photoBomb = image?.penguinPhotoBomb(image: image!)
+            let photoBomb: UIImage? = image?.penguinPhotoBomb(image: image!)
             self.savePhotoToLibrary(image: photoBomb!)
             // Lastly , the composited photo is saved to the shared photo library.
         }
@@ -77,16 +79,9 @@ extension PhotoCaptureDelegate: AVCapturePhotoCaptureDelegate{
     }
     
     
-    // https://stackoverflow.com/questions/46478262/taking-photo-with-custom-camera-ios-11-0-swift-4-update-error
-    
-    
-    
-    // https://stackoverflow.com/questions/43059282/using-avcapturephotooutput-in-ios10-nsgenericexception
-    
-
-    
-    
     /// - Tag: DidFinishProcessingLive
+    //  系统，拍静态照片，不走
+    //  拍实况照片走
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingLivePhotoToMovieFileAt outputFileURL: URL, duration: CMTime, photoDisplayTime: CMTime, resolvedSettings: AVCaptureResolvedPhotoSettings, error: Error?) {
         if error != nil {
             print("Error processing Live Photo companion movie: \(String(describing: error))")
@@ -96,14 +91,22 @@ extension PhotoCaptureDelegate: AVCapturePhotoCaptureDelegate{
     }
     
     /// - Tag: DidFinishCapture
+    //  系统，拍静态照片走
+    //  系统，拍实况照片走
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings, error: Error?) {
+        
+        if self.requestedPhotoSettings.livePhotoMovieFileURL == nil{
+            return
+        }
+        
+        
         if let error = error {
             print("Error capturing photo: \(error)")
             didFinish()
             return
         }
         
-        guard let photoData = photoData else {
+        guard let tmpPhotoData = photoData else {
             print("No photo data resource")
             didFinish()
             return
@@ -120,7 +123,7 @@ extension PhotoCaptureDelegate: AVCapturePhotoCaptureDelegate{
                     let options = PHAssetResourceCreationOptions()
                     let creationRequest = PHAssetCreationRequest.forAsset()
                     options.uniformTypeIdentifier = self.requestedPhotoSettings.processedFileType.map { $0.rawValue }
-                    creationRequest.addResource(with: .photo, data: photoData, options: options)
+                    creationRequest.addResource(with: .photo, data: tmpPhotoData, options: options)
                     
                     
                     // 再写，成对的 video
@@ -142,7 +145,8 @@ extension PhotoCaptureDelegate: AVCapturePhotoCaptureDelegate{
                     if let error = error {
                         print("Error occurred while saving photo to photo library: \(error)")
                     }
-                    
+                    let image = UIImage(data: tmpPhotoData)
+                    self.handleImageCompletionHandler(image!, self.requestedPhotoSettings.uniqueID)
                     self.didFinish()
                 }
                 )
@@ -189,7 +193,7 @@ extension PhotoCaptureDelegate{
             }, completionHandler: { isSuccess, error in
                 if isSuccess {
                     // Set thumbnail
-                    self.completionHandler(image, self)
+                    self.handleImageCompletionHandler(image, self.requestedPhotoSettings.uniqueID)
                 }
                 else{
                     print("Error writing to photo library:  \(error!.localizedDescription)")
@@ -200,3 +204,4 @@ extension PhotoCaptureDelegate{
 
 
 }
+

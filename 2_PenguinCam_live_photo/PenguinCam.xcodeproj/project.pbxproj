@@ -7,18 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D64FBA19892E0D4DF7B79B4 /* Pods_PenguinCamUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D66C851CE4ACCC8AE3D860 /* Pods_PenguinCamUITests.framework */; };
 		2326EAA7210FFA55004C8C07 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2326EAA6210FFA55004C8C07 /* Utility.swift */; };
-		2326EAAB21104C3E004C8C07 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2326EAAA21104C3E004C8C07 /* Album.swift */; };
+		23B9246321FE06C100B36D30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B9245F21FE06C100B36D30 /* ViewController.swift */; };
+		23B9246421FE06C100B36D30 /* QuickLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B9246021FE06C100B36D30 /* QuickLookViewController.swift */; };
+		23B9246521FE06C100B36D30 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B9246221FE06C100B36D30 /* Album.swift */; };
 		23BF28ED21F8624D00506A84 /* PhotoCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF28EC21F8624D00506A84 /* PhotoCaptureDelegate.swift */; };
 		23BF28F021F8AFB400506A84 /* FixedBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF28EF21F8AFB400506A84 /* FixedBtn.swift */; };
 		23EAD1B920DA36E2005CAD5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAD1B820DA36E2005CAD5E /* AppDelegate.swift */; };
-		23EAD1BB20DA36E2005CAD5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAD1BA20DA36E2005CAD5E /* ViewController.swift */; };
 		23EAD1BE20DA36E2005CAD5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EAD1BC20DA36E2005CAD5E /* Main.storyboard */; };
 		23EAD1C020DA36E4005CAD5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23EAD1BF20DA36E4005CAD5E /* Assets.xcassets */; };
 		23EAD1C320DA36E4005CAD5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EAD1C120DA36E4005CAD5E /* LaunchScreen.storyboard */; };
 		23EAD1CE20DA36E4005CAD5E /* PenguinCamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAD1CD20DA36E4005CAD5E /* PenguinCamTests.swift */; };
 		23EAD1D920DA36E4005CAD5E /* PenguinCamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAD1D820DA36E4005CAD5E /* PenguinCamUITests.swift */; };
-		23EAD1E720DA3770005CAD5E /* QuickLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAD1E620DA3770005CAD5E /* QuickLookViewController.swift */; };
+		57FAFF5CD9425F3FC3F77FAB /* Pods_PenguinCam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831D36FB69450E1EEAE2F85D /* Pods_PenguinCam.framework */; };
+		FDB07BE024E31269FD2678D1 /* Pods_PenguinCamTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5760513EEDA2A85750DAD3D6 /* Pods_PenguinCamTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,12 +43,13 @@
 
 /* Begin PBXFileReference section */
 		2326EAA6210FFA55004C8C07 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
-		2326EAAA21104C3E004C8C07 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		23B9245F21FE06C100B36D30 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		23B9246021FE06C100B36D30 /* QuickLookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickLookViewController.swift; sourceTree = "<group>"; };
+		23B9246221FE06C100B36D30 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		23BF28EC21F8624D00506A84 /* PhotoCaptureDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureDelegate.swift; sourceTree = "<group>"; };
 		23BF28EF21F8AFB400506A84 /* FixedBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedBtn.swift; sourceTree = "<group>"; };
 		23EAD1B520DA36E2005CAD5E /* PenguinCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenguinCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EAD1B820DA36E2005CAD5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		23EAD1BA20DA36E2005CAD5E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		23EAD1BD20DA36E2005CAD5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		23EAD1BF20DA36E4005CAD5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23EAD1C220DA36E4005CAD5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,7 +60,15 @@
 		23EAD1D420DA36E4005CAD5E /* PenguinCamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PenguinCamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23EAD1D820DA36E4005CAD5E /* PenguinCamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenguinCamUITests.swift; sourceTree = "<group>"; };
 		23EAD1DA20DA36E4005CAD5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		23EAD1E620DA3770005CAD5E /* QuickLookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLookViewController.swift; sourceTree = "<group>"; };
+		2C96A8B2A6D8FE877C05B3D8 /* Pods-PenguinCam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenguinCam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PenguinCam/Pods-PenguinCam.debug.xcconfig"; sourceTree = "<group>"; };
+		5760513EEDA2A85750DAD3D6 /* Pods_PenguinCamTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PenguinCamTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		784A2A0E695CD02B173F586A /* Pods-PenguinCamUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenguinCamUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PenguinCamUITests/Pods-PenguinCamUITests.release.xcconfig"; sourceTree = "<group>"; };
+		831D36FB69450E1EEAE2F85D /* Pods_PenguinCam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PenguinCam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		939ABD88F1D22C1630A97388 /* Pods-PenguinCamTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenguinCamTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PenguinCamTests/Pods-PenguinCamTests.release.xcconfig"; sourceTree = "<group>"; };
+		950115902BBFA0CA4AF1AA68 /* Pods-PenguinCamTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenguinCamTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PenguinCamTests/Pods-PenguinCamTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B5D66C851CE4ACCC8AE3D860 /* Pods_PenguinCamUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PenguinCamUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9BEE933A21E13A74D9F9F96 /* Pods-PenguinCamUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenguinCamUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PenguinCamUITests/Pods-PenguinCamUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F82E413CA64AA03B61AB2050 /* Pods-PenguinCam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PenguinCam.release.xcconfig"; path = "Pods/Target Support Files/Pods-PenguinCam/Pods-PenguinCam.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57FAFF5CD9425F3FC3F77FAB /* Pods_PenguinCam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDB07BE024E31269FD2678D1 /* Pods_PenguinCamTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,12 +92,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D64FBA19892E0D4DF7B79B4 /* Pods_PenguinCamUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23B9245E21FE06C100B36D30 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				23B9245F21FE06C100B36D30 /* ViewController.swift */,
+				23B9246021FE06C100B36D30 /* QuickLookViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		23B9246121FE06C100B36D30 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				23B9246221FE06C100B36D30 /* Album.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		23BF28EE21F8AFA100506A84 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +131,8 @@
 				23EAD1CC20DA36E4005CAD5E /* PenguinCamTests */,
 				23EAD1D720DA36E4005CAD5E /* PenguinCamUITests */,
 				23EAD1B620DA36E2005CAD5E /* Products */,
+				9CAE19A6FAA211AA260C7EDD /* Pods */,
+				D4347A3985E4207B83EE49AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,17 +149,16 @@
 		23EAD1B720DA36E2005CAD5E /* PenguinCam */ = {
 			isa = PBXGroup;
 			children = (
-				23BF28EE21F8AFA100506A84 /* View */,
-				2326EAAA21104C3E004C8C07 /* Album.swift */,
 				23EAD1B820DA36E2005CAD5E /* AppDelegate.swift */,
 				23EAD1BF20DA36E4005CAD5E /* Assets.xcassets */,
+				23B9245E21FE06C100B36D30 /* Controller */,
 				23EAD1C420DA36E4005CAD5E /* Info.plist */,
 				23EAD1C120DA36E4005CAD5E /* LaunchScreen.storyboard */,
 				23EAD1BC20DA36E2005CAD5E /* Main.storyboard */,
+				23B9246121FE06C100B36D30 /* model */,
 				23BF28EC21F8624D00506A84 /* PhotoCaptureDelegate.swift */,
-				23EAD1E620DA3770005CAD5E /* QuickLookViewController.swift */,
 				2326EAA6210FFA55004C8C07 /* Utility.swift */,
-				23EAD1BA20DA36E2005CAD5E /* ViewController.swift */,
+				23BF28EE21F8AFA100506A84 /* View */,
 			);
 			path = PenguinCam;
 			sourceTree = "<group>";
@@ -148,6 +181,29 @@
 			path = PenguinCamUITests;
 			sourceTree = "<group>";
 		};
+		9CAE19A6FAA211AA260C7EDD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2C96A8B2A6D8FE877C05B3D8 /* Pods-PenguinCam.debug.xcconfig */,
+				F82E413CA64AA03B61AB2050 /* Pods-PenguinCam.release.xcconfig */,
+				950115902BBFA0CA4AF1AA68 /* Pods-PenguinCamTests.debug.xcconfig */,
+				939ABD88F1D22C1630A97388 /* Pods-PenguinCamTests.release.xcconfig */,
+				E9BEE933A21E13A74D9F9F96 /* Pods-PenguinCamUITests.debug.xcconfig */,
+				784A2A0E695CD02B173F586A /* Pods-PenguinCamUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D4347A3985E4207B83EE49AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				831D36FB69450E1EEAE2F85D /* Pods_PenguinCam.framework */,
+				5760513EEDA2A85750DAD3D6 /* Pods_PenguinCamTests.framework */,
+				B5D66C851CE4ACCC8AE3D860 /* Pods_PenguinCamUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,9 +211,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 23EAD1DD20DA36E4005CAD5E /* Build configuration list for PBXNativeTarget "PenguinCam" */;
 			buildPhases = (
+				50C3C093A6407F97D14123AC /* [CP] Check Pods Manifest.lock */,
 				23EAD1B120DA36E2005CAD5E /* Sources */,
 				23EAD1B220DA36E2005CAD5E /* Frameworks */,
 				23EAD1B320DA36E2005CAD5E /* Resources */,
+				29BF90573AE06E8DA3BD2642 /* [CP] Embed Pods Frameworks */,
+				B93D1E284BFE79501DD03844 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -172,9 +231,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 23EAD1E020DA36E4005CAD5E /* Build configuration list for PBXNativeTarget "PenguinCamTests" */;
 			buildPhases = (
+				AF8312DB6100FC7016710EB5 /* [CP] Check Pods Manifest.lock */,
 				23EAD1C520DA36E4005CAD5E /* Sources */,
 				23EAD1C620DA36E4005CAD5E /* Frameworks */,
 				23EAD1C720DA36E4005CAD5E /* Resources */,
+				24D2EB3031E3D24FB539952A /* [CP] Embed Pods Frameworks */,
+				648D5878976586C68055A3F8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -190,9 +252,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 23EAD1E320DA36E4005CAD5E /* Build configuration list for PBXNativeTarget "PenguinCamUITests" */;
 			buildPhases = (
+				4A948EE9FD8D0B1645ADF487 /* [CP] Check Pods Manifest.lock */,
 				23EAD1D020DA36E4005CAD5E /* Sources */,
 				23EAD1D120DA36E4005CAD5E /* Frameworks */,
 				23EAD1D220DA36E4005CAD5E /* Resources */,
+				6CEF4C01AEC5843F180C8FFD /* [CP] Embed Pods Frameworks */,
+				47BC58585885AA07D88EF911 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -277,18 +342,170 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		24D2EB3031E3D24FB539952A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PenguinCamTests/Pods-PenguinCamTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PenguinCamTests/Pods-PenguinCamTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		29BF90573AE06E8DA3BD2642 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PenguinCam/Pods-PenguinCam-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		47BC58585885AA07D88EF911 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PenguinCamUITests/Pods-PenguinCamUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A948EE9FD8D0B1645ADF487 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PenguinCamUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		50C3C093A6407F97D14123AC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PenguinCam-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		648D5878976586C68055A3F8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PenguinCamTests/Pods-PenguinCamTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6CEF4C01AEC5843F180C8FFD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PenguinCamUITests/Pods-PenguinCamUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF8312DB6100FC7016710EB5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PenguinCamTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B93D1E284BFE79501DD03844 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PenguinCam/Pods-PenguinCam-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		23EAD1B120DA36E2005CAD5E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23B9246321FE06C100B36D30 /* ViewController.swift in Sources */,
 				23BF28ED21F8624D00506A84 /* PhotoCaptureDelegate.swift in Sources */,
 				2326EAA7210FFA55004C8C07 /* Utility.swift in Sources */,
-				23EAD1BB20DA36E2005CAD5E /* ViewController.swift in Sources */,
 				23EAD1B920DA36E2005CAD5E /* AppDelegate.swift in Sources */,
 				23BF28F021F8AFB400506A84 /* FixedBtn.swift in Sources */,
-				23EAD1E720DA3770005CAD5E /* QuickLookViewController.swift in Sources */,
-				2326EAAB21104C3E004C8C07 /* Album.swift in Sources */,
+				23B9246521FE06C100B36D30 /* Album.swift in Sources */,
+				23B9246421FE06C100B36D30 /* QuickLookViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +676,7 @@
 		};
 		23EAD1DE20DA36E4005CAD5E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C96A8B2A6D8FE877C05B3D8 /* Pods-PenguinCam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -478,6 +696,7 @@
 		};
 		23EAD1DF20DA36E4005CAD5E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F82E413CA64AA03B61AB2050 /* Pods-PenguinCam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -497,6 +716,7 @@
 		};
 		23EAD1E120DA36E4005CAD5E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 950115902BBFA0CA4AF1AA68 /* Pods-PenguinCamTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -518,6 +738,7 @@
 		};
 		23EAD1E220DA36E4005CAD5E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 939ABD88F1D22C1630A97388 /* Pods-PenguinCamTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -539,6 +760,7 @@
 		};
 		23EAD1E420DA36E4005CAD5E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9BEE933A21E13A74D9F9F96 /* Pods-PenguinCamUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -559,6 +781,7 @@
 		};
 		23EAD1E520DA36E4005CAD5E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 784A2A0E695CD02B173F586A /* Pods-PenguinCamUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -12,7 +12,7 @@ import Photos
 
 
 class ViewController: UIViewController {
-
+    
     
     @IBOutlet weak var camPreview: UIView!
     @IBOutlet weak var thumbnail: UIButton!
@@ -58,11 +58,15 @@ class ViewController: UIViewController {
             let quickLookController = segue.destination as! QuickLookViewController
             
             if let image = thumbnail.backgroundImage(for: .normal){
+                if thumbnail.accessibilityIdentifier == "Live"{
+                    quickLookController.isLivePhoto = true
+                }
                 quickLookController.photoImage = image
             }
             else{
                 quickLookController.photoImage = UIImage(named: "bg")
             }
+            
         }
     }
     
@@ -155,9 +159,9 @@ class ViewController: UIViewController {
         
         let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
         //      imageOutPut.isHighResolutionCaptureEnabled = true
-        let photoCaptureProcessor = PhotoCaptureDelegate(with: settings) { (image: UIImage, photoCaptureProcessor: PhotoCaptureDelegate) in
-            self.toSetPhotoThumbnail(image: image)
-            self.inProgressPhotoCaptureDelegates[photoCaptureProcessor.requestedPhotoSettings.uniqueID] = nil
+        let photoCaptureProcessor = PhotoCaptureDelegate(with: settings) { (image: UIImage, uniqueID: Int64)  in
+            self.toSetPhotoThumbnail(image: image, id: "Static")
+            self.inProgressPhotoCaptureDelegates[uniqueID] = nil
         }
         self.inProgressPhotoCaptureDelegates[photoCaptureProcessor.requestedPhotoSettings.uniqueID] = photoCaptureProcessor
         imageOutPut.capturePhoto(with: settings, delegate: photoCaptureProcessor)
@@ -462,11 +466,12 @@ extension ViewController{
     
     // MARK: - Helpers
     
-    func toSetPhotoThumbnail(image: UIImage) {
+    func toSetPhotoThumbnail(image: UIImage, id accessibilityIdentifier: String) {
         DispatchQueue.main.async {
             self.thumbnail.setBackgroundImage(image, for: .normal)
             self.thumbnail.layer.borderColor = UIColor.white.cgColor
             self.thumbnail.layer.borderWidth = 1.0
+            self.thumbnail.accessibilityIdentifier = accessibilityIdentifier
         }
     }
     
@@ -525,9 +530,9 @@ extension ViewController{
         let livePhotoMoviePath = (NSTemporaryDirectory() as NSString).appendingPathComponent(livePhotoMovieFileNameWithExtend!)
         livePhotoSettings.livePhotoMovieFileURL = URL(fileURLWithPath: livePhotoMoviePath)
      
-        let photoCaptureProcessor = PhotoCaptureDelegate(with: livePhotoSettings) { (image: UIImage, photoCaptureProcessor: PhotoCaptureDelegate) in
-            self.toSetPhotoThumbnail(image: image)
-            self.inProgressPhotoCaptureDelegates[photoCaptureProcessor.requestedPhotoSettings.uniqueID] = nil
+        let photoCaptureProcessor = PhotoCaptureDelegate(with: livePhotoSettings) { (image: UIImage, uniqueID: Int64) in
+            self.toSetPhotoThumbnail(image: image, id: "Live")
+            self.inProgressPhotoCaptureDelegates[uniqueID] = nil
         }
         self.inProgressPhotoCaptureDelegates[photoCaptureProcessor.requestedPhotoSettings.uniqueID] = photoCaptureProcessor
         
