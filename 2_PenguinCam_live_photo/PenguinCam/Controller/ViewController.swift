@@ -10,14 +10,16 @@ import UIKit
 import AVFoundation
 import Photos
 
+//
+import RxSwift
+import RxCocoa
+
 
 class ViewController: UIViewController {
     
     
     @IBOutlet weak var camPreview: UIView!
     @IBOutlet weak var thumbnail: UIButton!
-    @IBOutlet weak var livePhotoLabel: UILabel!
-    
     
     @IBOutlet weak var switchLivePhotoBtn: UIButton!
     @IBOutlet weak var switchCameraButton: UIButton!
@@ -42,6 +44,8 @@ class ViewController: UIViewController {
     
     private var livePhotoModeIsOn = false
     
+    let disposedBag = DisposeBag()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,15 +54,25 @@ class ViewController: UIViewController {
         setupSession()
         setupPreview()
         startSession()
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "QuickLookSegue" {
-            let quickLookController = segue.destination as! QuickLookViewController
+        
+        
+        self.switchLivePhotoBtn.rx.tap.subscribe(onNext: { [weak self] in
+            guard let `self` = self else { return }
+            self.livePhotoModeIsOn = !self.livePhotoModeIsOn
+            self.switchLivePhotoBtn.setTitle(self.livePhotoModeTextDict[self.livePhotoModeIsOn], for: UIControl.State.normal)
+            self.switchLivePhotoBtn.setImage(UIImage(named: self.livePhotoModeImageDict[self.livePhotoModeIsOn]!)!, for: .normal)
+        }).disposed(by: disposedBag)
+        
+        
+        
+        self.thumbnail.rx.tap.subscribe(onNext: { [weak self] in
+            guard let `self` = self else { return }
             
-            if let image = thumbnail.backgroundImage(for: .normal){
-                if thumbnail.accessibilityIdentifier == "Live"{
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let quickLookController = storyboard.instantiateViewController(withIdentifier: "QuickLookViewController") as! QuickLookViewController
+                
+            if let image = self.thumbnail.backgroundImage(for: .normal){
+                if self.thumbnail.accessibilityIdentifier == "Live"{
                     quickLookController.isLivePhoto = true
                 }
                 quickLookController.photoImage = image
@@ -66,10 +80,14 @@ class ViewController: UIViewController {
             else{
                 quickLookController.photoImage = UIImage(named: "bg")
             }
-            
-        }
+            self.present(quickLookController, animated: true, completion: {
+            })
+        }).disposed(by: disposedBag)
+        
+        
     }
     
+
     
     
     // MARK: - Configure
@@ -114,16 +132,6 @@ class ViewController: UIViewController {
     
     private var livePhotoModeImageDict = [true: "LivePhotoON",
                                          false: "LivePhotoOFF"]
-    
-    
-    @IBAction func switchLivePhtonMode(_ sender: UIButton) {
-        livePhotoModeIsOn = !livePhotoModeIsOn
-        switchLivePhotoBtn.setTitle(livePhotoModeTextDict[livePhotoModeIsOn], for: UIControl.State.normal)
-        switchLivePhotoBtn.setImage(UIImage(named: livePhotoModeImageDict[livePhotoModeIsOn]!)!, for: .normal)
-
-    }
-
-    
     
     
     func requestAuthorizationHander(_ status: PHAuthorizationStatus){

@@ -47,9 +47,6 @@
                                         <state key="normal" title="实况: 关" image="LivePhotoOFF">
                                             <color key="titleColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="switchLivePhtonMode:" destination="EuD-BP-gdV" eventType="touchUpInside" id="cb7-xI-zBF"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
@@ -86,9 +83,6 @@
                                             <constraint firstAttribute="height" constant="45" id="m6X-zI-rip"/>
                                             <constraint firstAttribute="width" constant="45" id="re0-EC-PAZ"/>
                                         </constraints>
-                                        <connections>
-                                            <segue destination="2Yh-9n-g0J" kind="show" identifier="QuickLookSegue" id="ErE-Zt-4rx"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29792774820000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -135,7 +129,7 @@
         <!--Quick Look View Controller-->
         <scene sceneID="2Ht-ux-hx1">
             <objects>
-                <viewController id="2Yh-9n-g0J" customClass="QuickLookViewController" customModule="PenguinCam" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuickLookViewController" id="2Yh-9n-g0J" customClass="QuickLookViewController" customModule="PenguinCam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kKM-NR-xj5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
