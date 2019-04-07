@@ -56,11 +56,24 @@ extension PhotoCaptureDelegate: AVCapturePhotoCaptureDelegate{
         }
         
         
+        
+        showPreview(for: photo)
+        return
+        
         // 下面是 still image, 静态照片
         
         // 不同的逻辑
         
+       
+        
         if let imageData = photo.fileDataRepresentation(){
+            
+            let bcf = ByteCountFormatter()
+            bcf.allowedUnits = [.useMB] // optional: restricts the units to MB only
+            bcf.countStyle = .file
+            let string = bcf.string(fromByteCount: Int64(imageData.count))
+            print("size of image, formatted result: \(string)")
+            
             
             // If the sample buffer contains data , it is then converted into a JPEG representaiton.
             
@@ -203,5 +216,20 @@ extension PhotoCaptureDelegate{
     }
 
 
+    
+    
+    func showPreview(for photo: AVCapturePhoto) {
+        guard let previewPixelBuffer = photo.previewPixelBuffer else { return }
+        let ciImage = CIImage(cvPixelBuffer: previewPixelBuffer)
+        let uiImage = UIImage(ciImage: ciImage)
+        
+        
+        let photoBomb: UIImage? = uiImage.penguinPhotoBomb(image: uiImage)
+        self.savePhotoToLibrary(image: photoBomb!)
+    }
+    
+    
+    
 }
+
 

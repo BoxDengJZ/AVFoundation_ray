@@ -180,14 +180,26 @@ class ViewController: UIViewController {
     func captureStillImage(){
         // Next, a still image is captured from a sample buffer from the image output connection,
         
-        let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
+        let photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
+        if photoSettings.availablePreviewPhotoPixelFormatTypes.count > 0 {
+            photoSettings.previewPhotoFormat = [
+                kCVPixelBufferPixelFormatTypeKey : photoSettings.availablePreviewPhotoPixelFormatTypes.first!,
+                kCVPixelBufferWidthKey : 512,
+                kCVPixelBufferHeightKey : 512
+                ] as [String: Any]
+        }
+        photoSettings.embeddedThumbnailPhotoFormat = [
+            AVVideoCodecKey: AVVideoCodecType.jpeg,
+            AVVideoWidthKey: 1024,
+            AVVideoHeightKey: 1024,
+        ]
         
-        let photoCaptureProcessor = PhotoCaptureDelegate(with: settings) { (image: UIImage, uniqueID: Int64)  in
+        let photoCaptureProcessor = PhotoCaptureDelegate(with: photoSettings) { (image: UIImage, uniqueID: Int64)  in
             self.toSetPhotoThumbnail(image: image, id: "Static")
             self.inProgressPhotoCaptureDelegates[uniqueID] = nil
         }
         self.inProgressPhotoCaptureDelegates[photoCaptureProcessor.requestedPhotoSettings.uniqueID] = photoCaptureProcessor
-        imageOutPut.capturePhoto(with: settings, delegate: photoCaptureProcessor)
+        imageOutPut.capturePhoto(with: photoSettings, delegate: photoCaptureProcessor)
     }
     
     
