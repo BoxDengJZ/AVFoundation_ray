@@ -27,9 +27,9 @@ extension UIImageView{
 
 
 extension UIImage {
-    func penguinPhotoBomb(image: UIImage) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(image.size, true, 0.0)
-        image.draw(at: CGPoint(x: 0.0, y: 0.0))
+    func penguinPhotoBomb() -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, true, 0.0)
+        draw(at: CGPoint(x: 0.0, y: 0.0))
 
         var xFactor: CGFloat = CGFloat.randomFloat(from: 0.75, to: 1.0)
         if CGFloat.randomFloat(from: 0.0, to: 1.0) >= 0.5 {
@@ -37,12 +37,12 @@ extension UIImage {
         }
 
         var yFactor: CGFloat = 0.35
-        if image.size.width < image.size.height {
+        if size.width < size.height {
             yFactor = 0.0
         }
         
-        let penguinX = image.size.width * xFactor - (penguinImage!.size.width / 2)
-        let penguinY = image.size.height * 0.5 - (penguinImage!.size.height * yFactor)
+        let penguinX = size.width * xFactor - (penguinImage!.size.width / 2)
+        let penguinY = size.height * 0.5 - (penguinImage!.size.height * yFactor)
         let penguinOrigin = CGPoint(x: penguinX, y: penguinY)
         penguinImage?.draw(at: penguinOrigin)
         
@@ -57,7 +57,6 @@ extension UIImage {
 extension CGFloat{
     static func randomFloat(from:CGFloat, to:CGFloat) -> CGFloat {
         let randomValue: CGFloat = CGFloat(Float(arc4random()) / 0xFFFFFFFF)
-        
         return randomValue * (to - from ) + from
     } 
 }

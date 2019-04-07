@@ -194,8 +194,8 @@ class ViewController: UIViewController {
             AVVideoHeightKey: 1024,
         ]
         
-        let photoCaptureProcessor = PhotoCaptureDelegate(with: photoSettings) { (image: UIImage, uniqueID: Int64)  in
-            self.toSetPhotoThumbnail(image: image, id: "Static")
+        let photoCaptureProcessor = PhotoCaptureDelegate(with: photoSettings) { (thumbnail, image, uniqueID) in
+            self.toSetPhotoThumbnail(image: thumbnail, id: "Static")
             self.inProgressPhotoCaptureDelegates[uniqueID] = nil
         }
         self.inProgressPhotoCaptureDelegates[photoCaptureProcessor.requestedPhotoSettings.uniqueID] = photoCaptureProcessor
@@ -559,13 +559,30 @@ extension ViewController{
     
     func captureLivePhoto(){
         let livePhotoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
+        if livePhotoSettings.availablePreviewPhotoPixelFormatTypes.count > 0 {
+            livePhotoSettings.previewPhotoFormat = [
+                kCVPixelBufferPixelFormatTypeKey : livePhotoSettings.availablePreviewPhotoPixelFormatTypes.first!,
+                kCVPixelBufferWidthKey : 512,
+                kCVPixelBufferHeightKey : 512
+                ] as [String: Any]
+        }
+        
+        
+        
+        livePhotoSettings.embeddedThumbnailPhotoFormat = [
+            AVVideoCodecKey: AVVideoCodecType.jpeg,
+            AVVideoWidthKey: 1024,
+            AVVideoHeightKey: 1024,
+        ]
+
+        
         
         let livePhotoMovieFileName = UUID().uuidString as NSString
         let livePhotoMovieFileNameWithExtend = livePhotoMovieFileName.appendingPathExtension("mov")
         let livePhotoMoviePath = (NSTemporaryDirectory() as NSString).appendingPathComponent(livePhotoMovieFileNameWithExtend!)
         livePhotoSettings.livePhotoMovieFileURL = URL(fileURLWithPath: livePhotoMoviePath)
      
-        let photoCaptureProcessor = PhotoCaptureDelegate(with: livePhotoSettings) { (image: UIImage, uniqueID: Int64) in
+        let photoCaptureProcessor = PhotoCaptureDelegate(with: livePhotoSettings) { (thumbnail, image, uniqueID) in
             self.toSetPhotoThumbnail(image: image, id: "Live")
             self.inProgressPhotoCaptureDelegates[uniqueID] = nil
         }

@@ -14,10 +14,11 @@ class PhotoCaptureDelegate: NSObject {
     
     private(set) var requestedPhotoSettings: AVCapturePhotoSettings
     private var photoData: Data?
+    private var thumbNail: UIImage?
     private var livePhotoCompanionMovieURL: URL?
-    private let handleImageCompletionHandler: (_ image: UIImage, _ uniqueID: Int64) -> Void
+    private let handleImageCompletionHandler: (_ thumbNailImage: UIImage, _ image: UIImage, _ uniqueID: Int64) -> Void
     
-    init(with requestedPhotoSettings: AVCapturePhotoSettings, completionHandler: @escaping (UIImage, Int64) -> Void){
+    init(with requestedPhotoSettings: AVCapturePhotoSettings, completionHandler: @escaping (UIImage, UIImage, Int64) -> Void){
         self.requestedPhotoSettings = requestedPhotoSettings
         self.handleImageCompletionHandler = completionHandler
     }
@@ -47,7 +48,7 @@ extension PhotoCaptureDelegate: AVCapturePhotoCaptureDelegate{
         //  CMSampleBuffer: Core Media
         //  CVImageBuffer: Core Video
         
-        
+        showPreview(for: photo)
         if self.requestedPhotoSettings.livePhotoMovieFileURL != nil , let imageData = photo.fileDataRepresentation(){
         
             // 这里是 Live Photo , 实况照片用的，
@@ -55,10 +56,6 @@ extension PhotoCaptureDelegate: AVCapturePhotoCaptureDelegate{
             return
         }
         
-        
-        
-        showPreview(for: photo)
-        return
         
         // 下面是 still image, 静态照片
         
@@ -82,7 +79,7 @@ extension PhotoCaptureDelegate: AVCapturePhotoCaptureDelegate{
             
             // and it compiles it with the `penguinPhotoBomb`
             
-            let photoBomb: UIImage? = image?.penguinPhotoBomb(image: image!)
+            let photoBomb: UIImage? = image?.penguinPhotoBomb()
             self.savePhotoToLibrary(image: photoBomb!)
             // Lastly , the composited photo is saved to the shared photo library.
         }
@@ -159,7 +156,7 @@ extension PhotoCaptureDelegate: AVCapturePhotoCaptureDelegate{
                         print("Error occurred while saving photo to photo library: \(error)")
                     }
                     let image = UIImage(data: tmpPhotoData)
-                    self.handleImageCompletionHandler(image!, self.requestedPhotoSettings.uniqueID)
+                    self.handleImageCompletionHandler(self.thumbNail!, image!, self.requestedPhotoSettings.uniqueID)
                     self.didFinish()
                 }
                 )
@@ -206,7 +203,7 @@ extension PhotoCaptureDelegate{
             }, completionHandler: { isSuccess, error in
                 if isSuccess {
                     // Set thumbnail
-                    self.handleImageCompletionHandler(image, self.requestedPhotoSettings.uniqueID)
+                    self.handleImageCompletionHandler(self.thumbNail!, image, self.requestedPhotoSettings.uniqueID)
                 }
                 else{
                     print("Error writing to photo library:  \(error!.localizedDescription)")
@@ -222,10 +219,8 @@ extension PhotoCaptureDelegate{
         guard let previewPixelBuffer = photo.previewPixelBuffer else { return }
         let ciImage = CIImage(cvPixelBuffer: previewPixelBuffer)
         let uiImage = UIImage(ciImage: ciImage)
+        thumbNail = uiImage
         
-        
-        let photoBomb: UIImage? = uiImage.penguinPhotoBomb(image: uiImage)
-        self.savePhotoToLibrary(image: photoBomb!)
     }
     
     
