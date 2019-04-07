@@ -70,7 +70,7 @@ class ViewController: UIViewController {
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let quickLookController = storyboard.instantiateViewController(withIdentifier: "QuickLookViewController") as! QuickLookViewController
-                
+            
             if let image = self.thumbnail.backgroundImage(for: .normal){
                 if self.thumbnail.accessibilityIdentifier == "Live"{
                     quickLookController.isLivePhoto = true
