@@ -31,21 +31,14 @@ extension UIImage {
         UIGraphicsBeginImageContextWithOptions(image.size, true, 0.0)
         image.draw(at: CGPoint(x: 0.0, y: 0.0))
 
-     //   let penguinImage = UIImage(named: "Penguin_3")
-        var xFactor: CGFloat
+        var xFactor: CGFloat = CGFloat.randomFloat(from: 0.75, to: 1.0)
         if CGFloat.randomFloat(from: 0.0, to: 1.0) >= 0.5 {
             xFactor = CGFloat.randomFloat(from: 0.0, to: 0.25)
         }
-        else{
-            xFactor = CGFloat.randomFloat(from: 0.75, to: 1.0)
-        }
-        
-        var yFactor: CGFloat
+
+        var yFactor: CGFloat = 0.35
         if image.size.width < image.size.height {
             yFactor = 0.0
-        }
-        else{
-            yFactor = 0.35
         }
         
         let penguinX = image.size.width * xFactor - (penguinImage!.size.width / 2)

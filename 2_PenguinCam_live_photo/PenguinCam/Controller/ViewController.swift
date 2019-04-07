@@ -44,8 +44,8 @@ class ViewController: UIViewController {
     
     private var livePhotoModeIsOn = false
     
-    let disposedBag = DisposeBag()
     
+    let disposedBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,28 +66,41 @@ class ViewController: UIViewController {
         
         
         self.thumbnail.rx.tap.subscribe(onNext: { [weak self] in
+            
+            
+            
             guard let `self` = self else { return }
+            self.debug()
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let quickLookController = storyboard.instantiateViewController(withIdentifier: "QuickLookViewController") as! QuickLookViewController
-            
-            if let image = self.thumbnail.backgroundImage(for: .normal){
-                if self.thumbnail.accessibilityIdentifier == "Live"{
-                    quickLookController.isLivePhoto = true
-                }
-                quickLookController.photoImage = image
-            }
-            else{
-                quickLookController.photoImage = UIImage(named: "bg")
-            }
-            self.present(quickLookController, animated: true, completion: {
-            })
         }).disposed(by: disposedBag)
         
         
     }
     
 
+    
+    
+    func debug(){
+        
+        
+        
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let quickLookController = storyboard.instantiateViewController(withIdentifier: "QuickLookViewController") as! QuickLookViewController
+        
+        if let image = self.thumbnail.backgroundImage(for: .normal){
+            if self.thumbnail.accessibilityIdentifier == "Live"{
+                quickLookController.isLivePhoto = true
+            }
+            quickLookController.photoImage = image
+        }
+        else{
+            quickLookController.photoImage = UIImage(named: "bg")
+        }
+        self.present(quickLookController, animated: true, completion: {
+        })
+    }
+    
     
     
     // MARK: - Configure
@@ -162,11 +175,13 @@ class ViewController: UIViewController {
     
     private var inProgressPhotoCaptureDelegates = [Int64: PhotoCaptureDelegate]()
     
+    
+    
     func captureStillImage(){
         // Next, a still image is captured from a sample buffer from the image output connection,
         
         let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
-        //      imageOutPut.isHighResolutionCaptureEnabled = true
+        
         let photoCaptureProcessor = PhotoCaptureDelegate(with: settings) { (image: UIImage, uniqueID: Int64)  in
             self.toSetPhotoThumbnail(image: image, id: "Static")
             self.inProgressPhotoCaptureDelegates[uniqueID] = nil
@@ -225,7 +240,7 @@ extension ViewController{
         if captureSession.canAddOutput(imageOutPut){
             captureSession.addOutput(imageOutPut)
             
-            imageOutPut.isHighResolutionCaptureEnabled = true
+//            imageOutPut.isHighResolutionCaptureEnabled = true
             imageOutPut.isLivePhotoCaptureEnabled = true
         }
 
