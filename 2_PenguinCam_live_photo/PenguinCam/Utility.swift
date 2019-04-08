@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import ImageIO
 
 let penguinImage = UIImage(named: "Penguin_3")
 
@@ -31,11 +31,10 @@ extension UIImage {
         UIGraphicsBeginImageContextWithOptions(size, true, 0.0)
         draw(at: CGPoint(x: 0.0, y: 0.0))
 
-        var xFactor: CGFloat = CGFloat.randomFloat(from: 0.75, to: 1.0)
-        if CGFloat.randomFloat(from: 0.0, to: 1.0) >= 0.5 {
-            xFactor = CGFloat.randomFloat(from: 0.0, to: 0.25)
+        var xFactor: CGFloat = CGFloat.random(in: 0.75..<1.0)
+        if CGFloat.random(in: 0..<1.0) >= 0.5 {
+            xFactor = CGFloat.random(in: 0..<0.25)
         }
-
         var yFactor: CGFloat = 0.35
         if size.width < size.height {
             yFactor = 0.0
@@ -50,16 +49,33 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return finalImage!
     }
+    
+    
+    
+    func penguinPhotoBomb_woqu() -> UIImage {
+        //  使用不当
+        
+        let renderer = UIGraphicsImageRenderer(size: UIScreen.main.bounds.size)
+        let finalImage = renderer.image { (context: UIGraphicsImageRendererContext) in
+            draw(at: CGPoint(x: 0.0, y: 0.0))
+            var xFactor: CGFloat = CGFloat.random(in: 0.75..<1.0)
+            if CGFloat.random(in: 0..<1.0) >= 0.5 {
+                xFactor = CGFloat.random(in: 0..<0.25)
+            }
+            var yFactor: CGFloat = 0.35
+            if size.width < size.height {
+                yFactor = 0.0
+            }
+            let penguinX = size.width * xFactor - (penguinImage!.size.width / 2)
+            let penguinY = size.height * 0.5 - (penguinImage!.size.height * yFactor)
+            let penguinOrigin = CGPoint(x: penguinX, y: penguinY)
+            penguinImage?.draw(at: penguinOrigin)
+        }
+        return finalImage
+    }
 }
 
 
-
-extension CGFloat{
-    static func randomFloat(from:CGFloat, to:CGFloat) -> CGFloat {
-        let randomValue: CGFloat = CGFloat(Float(arc4random()) / 0xFFFFFFFF)
-        return randomValue * (to - from ) + from
-    } 
-}
 
 
 

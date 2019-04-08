@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     private let kExposure = "adjustingExposure"
     
     private var livePhotoModeIsOn = false
-    
+    private var showImage: UIImage?
     
     let disposedBag = DisposeBag()
     
@@ -68,7 +68,6 @@ class ViewController: UIViewController {
         self.thumbnail.rx.tap.subscribe(onNext: { [weak self] in
             
             
-            
             guard let `self` = self else { return }
             self.debug()
             
@@ -83,12 +82,10 @@ class ViewController: UIViewController {
     func debug(){
         
         
-        
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let quickLookController = storyboard.instantiateViewController(withIdentifier: "QuickLookViewController") as! QuickLookViewController
         
-        if let image = self.thumbnail.backgroundImage(for: .normal){
+        if let image = showImage{
             if self.thumbnail.accessibilityIdentifier == "Live"{
                 quickLookController.isLivePhoto = true
             }
@@ -197,6 +194,7 @@ class ViewController: UIViewController {
         let photoCaptureProcessor = PhotoCaptureDelegate(with: photoSettings) { (thumbnail, image, uniqueID) in
             self.toSetPhotoThumbnail(image: thumbnail, id: "Static")
             self.inProgressPhotoCaptureDelegates[uniqueID] = nil
+            self.showImage = image
         }
         self.inProgressPhotoCaptureDelegates[photoCaptureProcessor.requestedPhotoSettings.uniqueID] = photoCaptureProcessor
         imageOutPut.capturePhoto(with: photoSettings, delegate: photoCaptureProcessor)
