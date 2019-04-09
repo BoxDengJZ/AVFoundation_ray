@@ -64,15 +64,10 @@ class ViewController: UIViewController {
         }).disposed(by: disposedBag)
         
         
-        
         self.thumbnail.rx.tap.subscribe(onNext: { [weak self] in
-            
-            
             guard let `self` = self else { return }
-            self.debug()
-            
+            self.debug()    
         }).disposed(by: disposedBag)
-        
         
     }
     
@@ -86,7 +81,7 @@ class ViewController: UIViewController {
         let quickLookController = storyboard.instantiateViewController(withIdentifier: "QuickLookViewController") as! QuickLookViewController
         
         if let image = showImage{
-            if self.thumbnail.accessibilityIdentifier == "Live"{
+            if self.thumbnail.accessibilityIdentifier == Consts.live{
                 quickLookController.isLivePhoto = true
             }
             quickLookController.photoImage = image
@@ -192,7 +187,7 @@ class ViewController: UIViewController {
         ]
         
         let photoCaptureProcessor = PhotoCaptureDelegate(with: photoSettings) { (thumbnail, image, uniqueID) in
-            self.toSetPhotoThumbnail(image: thumbnail, id: "Static")
+            self.toSetPhotoThumbnail(image: thumbnail, id: Consts.still)
             self.inProgressPhotoCaptureDelegates[uniqueID] = nil
             self.showImage = image
         }
@@ -249,8 +244,7 @@ extension ViewController{
         // set the image output to use jpeg compression, and add the output to the `captureSession`
         if captureSession.canAddOutput(imageOutPut){
             captureSession.addOutput(imageOutPut)
-            
-//            imageOutPut.isHighResolutionCaptureEnabled = true
+            imageOutPut.isHighResolutionCaptureEnabled = true
             imageOutPut.isLivePhotoCaptureEnabled = true
         }
 
@@ -565,24 +559,21 @@ extension ViewController{
                 ] as [String: Any]
         }
         
-        
-        
         livePhotoSettings.embeddedThumbnailPhotoFormat = [
             AVVideoCodecKey: AVVideoCodecType.jpeg,
             AVVideoWidthKey: 1024,
             AVVideoHeightKey: 1024,
         ]
 
-        
-        
         let livePhotoMovieFileName = UUID().uuidString as NSString
         let livePhotoMovieFileNameWithExtend = livePhotoMovieFileName.appendingPathExtension("mov")
         let livePhotoMoviePath = (NSTemporaryDirectory() as NSString).appendingPathComponent(livePhotoMovieFileNameWithExtend!)
         livePhotoSettings.livePhotoMovieFileURL = URL(fileURLWithPath: livePhotoMoviePath)
      
         let photoCaptureProcessor = PhotoCaptureDelegate(with: livePhotoSettings) { (thumbnail, image, uniqueID) in
-            self.toSetPhotoThumbnail(image: image, id: "Live")
+            self.toSetPhotoThumbnail(image: image, id: Consts.live)
             self.inProgressPhotoCaptureDelegates[uniqueID] = nil
+            self.showImage = image
         }
         self.inProgressPhotoCaptureDelegates[photoCaptureProcessor.requestedPhotoSettings.uniqueID] = photoCaptureProcessor
         

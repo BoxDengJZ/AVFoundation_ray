@@ -60,8 +60,81 @@ extension PhotoCaptureDelegate: AVCapturePhotoCaptureDelegate{
         // 下面是 still image, 静态照片
         
         // 不同的逻辑
+        handleStillImage(photo, error: error)
+    }
+    
+    
+    /// - Tag: DidFinishProcessingLive
+    //  系统，拍静态照片，不走
+    //  拍实况照片走
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingLivePhotoToMovieFileAt outputFileURL: URL, duration: CMTime, photoDisplayTime: CMTime, resolvedSettings: AVCaptureResolvedPhotoSettings, error: Error?) {
+        if error != nil {
+            print("Error processing Live Photo companion movie: \(String(describing: error))")
+            return
+        }
+        livePhotoCompanionMovieURL = outputFileURL
+    }
+    
+    /// - Tag: DidFinishCapture
+    //  系统，拍静态照片走
+    //  系统，拍实况照片走
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings, error: Error?) {
         
-       
+        if self.requestedPhotoSettings.livePhotoMovieFileURL == nil{
+            return
+        }
+        handleLivePhoto(output, error: error)
+        
+    }
+    
+}
+
+
+
+
+extension PhotoCaptureDelegate{
+
+    // MARK: - Helpers
+    func savePhotoToLibrary(image: UIImage) {
+        let photoLibrary = PHPhotoLibrary.shared()
+        
+        let name = "DNG"
+        var customAlbum = PHAssetCollection.findAlbum()
+        if customAlbum == nil {
+            
+            PHPhotoLibrary.shared().performChanges({
+                PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: name)
+                
+            }, completionHandler: { (isV: Bool, error: Error?) in
+                customAlbum = PHAssetCollection.findAlbum()
+                
+                print("Result: \(isV)")
+                self.savePhotoToLibrary(image: image)
+                
+                return
+            })
+        }
+        else{
+            photoLibrary.performChanges({
+                let result = PHAssetChangeRequest.creationRequestForAsset(from: image)
+                let assetImage = result.placeholderForCreatedAsset
+                let albumChangeRequest = PHAssetCollectionChangeRequest(for: customAlbum!)
+                albumChangeRequest!.addAssets([assetImage!] as NSArray)
+                
+            }, completionHandler: { isSuccess, error in
+                if isSuccess {
+                    // Set thumbnail
+                    self.handleImageCompletionHandler(self.thumbNail!, image, self.requestedPhotoSettings.uniqueID)
+                }
+                else{
+                    print("Error writing to photo library:  \(error!.localizedDescription)")
+                }
+            })// photoLibrary.performChanges
+        }
+    }
+
+
+    func handleStillImage(_ photo: AVCapturePhoto, error: Error?){
         
         if let imageData = photo.fileDataRepresentation(){
             
@@ -86,30 +159,12 @@ extension PhotoCaptureDelegate: AVCapturePhotoCaptureDelegate{
         else{
             print("Error capturing photo: \(String(describing: error?.localizedDescription))")
         }
+        
     }
     
     
-    /// - Tag: DidFinishProcessingLive
-    //  系统，拍静态照片，不走
-    //  拍实况照片走
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingLivePhotoToMovieFileAt outputFileURL: URL, duration: CMTime, photoDisplayTime: CMTime, resolvedSettings: AVCaptureResolvedPhotoSettings, error: Error?) {
-        if error != nil {
-            print("Error processing Live Photo companion movie: \(String(describing: error))")
-            return
-        }
-        livePhotoCompanionMovieURL = outputFileURL
-    }
     
-    /// - Tag: DidFinishCapture
-    //  系统，拍静态照片走
-    //  系统，拍实况照片走
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings, error: Error?) {
-        
-        if self.requestedPhotoSettings.livePhotoMovieFileURL == nil{
-            return
-        }
-        
-        
+    func handleLivePhoto(_ output: AVCapturePhotoOutput, error: Error?){
         if let error = error {
             print("Error capturing photo: \(error)")
             didFinish()
@@ -164,55 +219,9 @@ extension PhotoCaptureDelegate: AVCapturePhotoCaptureDelegate{
                 self.didFinish()
             }
         }
+
     }
     
-}
-
-
-
-
-extension PhotoCaptureDelegate{
-
-    // MARK: - Helpers
-    func savePhotoToLibrary(image: UIImage) {
-        let photoLibrary = PHPhotoLibrary.shared()
-        
-        let name = "DNG"
-        var customAlbum = PHAssetCollection.findAlbum()
-        if customAlbum == nil {
-            
-            PHPhotoLibrary.shared().performChanges({
-                PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: name)
-                
-            }, completionHandler: { (isV: Bool, error: Error?) in
-                customAlbum = PHAssetCollection.findAlbum()
-                
-                print("Result: \(isV)")
-                self.savePhotoToLibrary(image: image)
-                
-                return
-            })
-        }
-        else{
-            photoLibrary.performChanges({
-                let result = PHAssetChangeRequest.creationRequestForAsset(from: image)
-                let assetImage = result.placeholderForCreatedAsset
-                let albumChangeRequest = PHAssetCollectionChangeRequest(for: customAlbum!)
-                albumChangeRequest!.addAssets([assetImage!] as NSArray)
-                
-            }, completionHandler: { isSuccess, error in
-                if isSuccess {
-                    // Set thumbnail
-                    self.handleImageCompletionHandler(self.thumbNail!, image, self.requestedPhotoSettings.uniqueID)
-                }
-                else{
-                    print("Error writing to photo library:  \(error!.localizedDescription)")
-                }
-            })// photoLibrary.performChanges
-        }
-    }
-
-
     
     
     func showPreview(for photo: AVCapturePhoto) {

@@ -12,6 +12,7 @@
 		23B9246321FE06C100B36D30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B9245F21FE06C100B36D30 /* ViewController.swift */; };
 		23B9246421FE06C100B36D30 /* QuickLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B9246021FE06C100B36D30 /* QuickLookViewController.swift */; };
 		23B9246521FE06C100B36D30 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B9246221FE06C100B36D30 /* Album.swift */; };
+		23BAB824225CD62500B6EF37 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAB823225CD62500B6EF37 /* Consts.swift */; };
 		23BF28ED21F8624D00506A84 /* PhotoCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF28EC21F8624D00506A84 /* PhotoCaptureDelegate.swift */; };
 		23BF28F021F8AFB400506A84 /* FixedBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BF28EF21F8AFB400506A84 /* FixedBtn.swift */; };
 		23EAD1B920DA36E2005CAD5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAD1B820DA36E2005CAD5E /* AppDelegate.swift */; };
@@ -46,6 +47,7 @@
 		23B9245F21FE06C100B36D30 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		23B9246021FE06C100B36D30 /* QuickLookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickLookViewController.swift; sourceTree = "<group>"; };
 		23B9246221FE06C100B36D30 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		23BAB823225CD62500B6EF37 /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
 		23BF28EC21F8624D00506A84 /* PhotoCaptureDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureDelegate.swift; sourceTree = "<group>"; };
 		23BF28EF21F8AFB400506A84 /* FixedBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedBtn.swift; sourceTree = "<group>"; };
 		23EAD1B520DA36E2005CAD5E /* PenguinCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PenguinCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +118,14 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		23BAB822225CD61400B6EF37 /* Consts */ = {
+			isa = PBXGroup;
+			children = (
+				23BAB823225CD62500B6EF37 /* Consts.swift */,
+			);
+			path = Consts;
+			sourceTree = "<group>";
+		};
 		23BF28EE21F8AFA100506A84 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +161,7 @@
 			children = (
 				23EAD1B820DA36E2005CAD5E /* AppDelegate.swift */,
 				23EAD1BF20DA36E4005CAD5E /* Assets.xcassets */,
+				23BAB822225CD61400B6EF37 /* Consts */,
 				23B9245E21FE06C100B36D30 /* Controller */,
 				23EAD1C420DA36E4005CAD5E /* Info.plist */,
 				23EAD1C120DA36E4005CAD5E /* LaunchScreen.storyboard */,
@@ -426,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23B9246321FE06C100B36D30 /* ViewController.swift in Sources */,
+				23BAB824225CD62500B6EF37 /* Consts.swift in Sources */,
 				23BF28ED21F8624D00506A84 /* PhotoCaptureDelegate.swift in Sources */,
 				2326EAA7210FFA55004C8C07 /* Utility.swift in Sources */,
 				23EAD1B920DA36E2005CAD5E /* AppDelegate.swift in Sources */,

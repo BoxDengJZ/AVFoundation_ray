@@ -44,6 +44,8 @@ class QuickLookViewController: UIViewController {
         tapGesture.rx.event.bind(onNext: {[weak self] (gestureRecognizer: UITapGestureRecognizer) in
             self?.dismiss(animated: true, completion: nil)
         }).disposed(by: disposedBag )
+        
+        
         dissGesture.rx.event.bind(onNext: {[weak self] (gestureRecognizer: UITapGestureRecognizer) in
             self?.dismiss(animated: true, completion: nil)
         }).disposed(by: disposedBag )
@@ -61,30 +63,13 @@ class QuickLookViewController: UIViewController {
             livePhotoView.isHidden = true
         }
         
-        
-        guard isLivePhoto else{
-            return
-        }
-        let asset = fetchLatestPhotos()
-        
-        
-        
-        // Request the live photo for the asset from the default PHImageManager.
-        PHImageManager.default().requestLivePhoto(for: asset, targetSize: livePhotoView.bounds.size, contentMode: .aspectFit, options: nil, resultHandler: { livePhoto, info in
-            // If successful, show the live photo view and display the live photo.
-            guard let livePhoto = livePhoto else { return }
-            
-            // Now that we have the Live Photo, show it.
-            self.quickLookImage.isHidden = true
-            self.livePhotoView.isHidden = false
-            self.livePhotoView.livePhoto = livePhoto
-
-            self.livePhotoView.startPlayback(with: .hint)
-            
-        })
+        presentLivePhoto()
  
     }
 
+    
+    
+    
     
     override var prefersStatusBarHidden: Bool{
         return true
@@ -108,4 +93,26 @@ class QuickLookViewController: UIViewController {
         
     }
     
+    
+    
+    func presentLivePhoto(){
+        guard isLivePhoto else{
+            return
+        }
+        let asset = fetchLatestPhotos()
+        
+        // Request the live photo for the asset from the default PHImageManager.
+        PHImageManager.default().requestLivePhoto(for: asset, targetSize: livePhotoView.bounds.size, contentMode: .aspectFit, options: nil, resultHandler: { livePhoto, info in
+            // If successful, show the live photo view and display the live photo.
+            guard let livePhoto = livePhoto else { return }
+            
+            // Now that we have the Live Photo, show it.
+            self.quickLookImage.isHidden = true
+            self.livePhotoView.isHidden = false
+            self.livePhotoView.livePhoto = livePhoto
+            
+            self.livePhotoView.startPlayback(with: .hint)
+            
+        })
+    }
 }
