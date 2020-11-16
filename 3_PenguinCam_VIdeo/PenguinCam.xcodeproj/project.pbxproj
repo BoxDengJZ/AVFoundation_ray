@@ -17,27 +17,8 @@
 		23EAD1BE20DA36E2005CAD5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EAD1BC20DA36E2005CAD5E /* Main.storyboard */; };
 		23EAD1C020DA36E4005CAD5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23EAD1BF20DA36E4005CAD5E /* Assets.xcassets */; };
 		23EAD1C320DA36E4005CAD5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23EAD1C120DA36E4005CAD5E /* LaunchScreen.storyboard */; };
-		23EAD1CE20DA36E4005CAD5E /* PenguinCamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAD1CD20DA36E4005CAD5E /* PenguinCamTests.swift */; };
-		23EAD1D920DA36E4005CAD5E /* PenguinCamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAD1D820DA36E4005CAD5E /* PenguinCamUITests.swift */; };
 		23EAD1E720DA3770005CAD5E /* QuickLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EAD1E620DA3770005CAD5E /* QuickLookViewController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		23EAD1CA20DA36E4005CAD5E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 23EAD1AD20DA36E2005CAD5E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 23EAD1B420DA36E2005CAD5E;
-			remoteInfo = PenguinCam;
-		};
-		23EAD1D520DA36E4005CAD5E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 23EAD1AD20DA36E2005CAD5E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 23EAD1B420DA36E2005CAD5E;
-			remoteInfo = PenguinCam;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2326EAAA21104C3E004C8C07 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
@@ -52,31 +33,11 @@
 		23EAD1BF20DA36E4005CAD5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23EAD1C220DA36E4005CAD5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23EAD1C420DA36E4005CAD5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		23EAD1C920DA36E4005CAD5E /* PenguinCamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PenguinCamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		23EAD1CD20DA36E4005CAD5E /* PenguinCamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenguinCamTests.swift; sourceTree = "<group>"; };
-		23EAD1CF20DA36E4005CAD5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		23EAD1D420DA36E4005CAD5E /* PenguinCamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PenguinCamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		23EAD1D820DA36E4005CAD5E /* PenguinCamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenguinCamUITests.swift; sourceTree = "<group>"; };
-		23EAD1DA20DA36E4005CAD5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23EAD1E620DA3770005CAD5E /* QuickLookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLookViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		23EAD1B220DA36E2005CAD5E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		23EAD1C620DA36E4005CAD5E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		23EAD1D120DA36E4005CAD5E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -107,8 +68,6 @@
 			isa = PBXGroup;
 			children = (
 				23EAD1B720DA36E2005CAD5E /* PenguinCam */,
-				23EAD1CC20DA36E4005CAD5E /* PenguinCamTests */,
-				23EAD1D720DA36E4005CAD5E /* PenguinCamUITests */,
 				23EAD1B620DA36E2005CAD5E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,8 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				23EAD1B520DA36E2005CAD5E /* PenguinCam.app */,
-				23EAD1C920DA36E4005CAD5E /* PenguinCamTests.xctest */,
-				23EAD1D420DA36E4005CAD5E /* PenguinCamUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,24 +98,6 @@
 			path = PenguinCam;
 			sourceTree = "<group>";
 		};
-		23EAD1CC20DA36E4005CAD5E /* PenguinCamTests */ = {
-			isa = PBXGroup;
-			children = (
-				23EAD1CD20DA36E4005CAD5E /* PenguinCamTests.swift */,
-				23EAD1CF20DA36E4005CAD5E /* Info.plist */,
-			);
-			path = PenguinCamTests;
-			sourceTree = "<group>";
-		};
-		23EAD1D720DA36E4005CAD5E /* PenguinCamUITests */ = {
-			isa = PBXGroup;
-			children = (
-				23EAD1D820DA36E4005CAD5E /* PenguinCamUITests.swift */,
-				23EAD1DA20DA36E4005CAD5E /* Info.plist */,
-			);
-			path = PenguinCamUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -179,42 +118,6 @@
 			productReference = 23EAD1B520DA36E2005CAD5E /* PenguinCam.app */;
 			productType = "com.apple.product-type.application";
 		};
-		23EAD1C820DA36E4005CAD5E /* PenguinCamTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 23EAD1E020DA36E4005CAD5E /* Build configuration list for PBXNativeTarget "PenguinCamTests" */;
-			buildPhases = (
-				23EAD1C520DA36E4005CAD5E /* Sources */,
-				23EAD1C620DA36E4005CAD5E /* Frameworks */,
-				23EAD1C720DA36E4005CAD5E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				23EAD1CB20DA36E4005CAD5E /* PBXTargetDependency */,
-			);
-			name = PenguinCamTests;
-			productName = PenguinCamTests;
-			productReference = 23EAD1C920DA36E4005CAD5E /* PenguinCamTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		23EAD1D320DA36E4005CAD5E /* PenguinCamUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 23EAD1E320DA36E4005CAD5E /* Build configuration list for PBXNativeTarget "PenguinCamUITests" */;
-			buildPhases = (
-				23EAD1D020DA36E4005CAD5E /* Sources */,
-				23EAD1D120DA36E4005CAD5E /* Frameworks */,
-				23EAD1D220DA36E4005CAD5E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				23EAD1D620DA36E4005CAD5E /* PBXTargetDependency */,
-			);
-			name = PenguinCamUITests;
-			productName = PenguinCamUITests;
-			productReference = 23EAD1D420DA36E4005CAD5E /* PenguinCamUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -222,22 +125,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = dengjiangzhou;
 				TargetAttributes = {
 					23EAD1B420DA36E2005CAD5E = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1010;
-					};
-					23EAD1C820DA36E4005CAD5E = {
-						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1010;
-						TestTargetID = 23EAD1B420DA36E2005CAD5E;
-					};
-					23EAD1D320DA36E4005CAD5E = {
-						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1010;
-						TestTargetID = 23EAD1B420DA36E2005CAD5E;
 					};
 				};
 			};
@@ -255,8 +148,6 @@
 			projectRoot = "";
 			targets = (
 				23EAD1B420DA36E2005CAD5E /* PenguinCam */,
-				23EAD1C820DA36E4005CAD5E /* PenguinCamTests */,
-				23EAD1D320DA36E4005CAD5E /* PenguinCamUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -269,20 +160,6 @@
 				23EAD1C320DA36E4005CAD5E /* LaunchScreen.storyboard in Resources */,
 				23EAD1C020DA36E4005CAD5E /* Assets.xcassets in Resources */,
 				23EAD1BE20DA36E2005CAD5E /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		23EAD1C720DA36E4005CAD5E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		23EAD1D220DA36E4005CAD5E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,36 +181,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		23EAD1C520DA36E4005CAD5E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				23EAD1CE20DA36E4005CAD5E /* PenguinCamTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		23EAD1D020DA36E4005CAD5E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				23EAD1D920DA36E4005CAD5E /* PenguinCamUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		23EAD1CB20DA36E4005CAD5E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 23EAD1B420DA36E2005CAD5E /* PenguinCam */;
-			targetProxy = 23EAD1CA20DA36E4005CAD5E /* PBXContainerItemProxy */;
-		};
-		23EAD1D620DA36E4005CAD5E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 23EAD1B420DA36E2005CAD5E /* PenguinCam */;
-			targetProxy = 23EAD1D520DA36E4005CAD5E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		23EAD1BC20DA36E2005CAD5E /* Main.storyboard */ = {
@@ -381,6 +229,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -406,7 +255,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -441,6 +290,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -460,7 +310,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -474,9 +324,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9ZPF2ERCW9;
+				DEVELOPMENT_TEAM = D878P8TW6L;
 				INFOPLIST_FILE = PenguinCam/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -493,9 +343,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9ZPF2ERCW9;
+				DEVELOPMENT_TEAM = D878P8TW6L;
 				INFOPLIST_FILE = PenguinCam/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -504,88 +354,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		23EAD1E120DA36E4005CAD5E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9ZPF2ERCW9;
-				INFOPLIST_FILE = PenguinCamTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dengjiangzhou.PenguinCamTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PenguinCam.app/PenguinCam";
-			};
-			name = Debug;
-		};
-		23EAD1E220DA36E4005CAD5E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9ZPF2ERCW9;
-				INFOPLIST_FILE = PenguinCamTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dengjiangzhou.PenguinCamTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PenguinCam.app/PenguinCam";
-			};
-			name = Release;
-		};
-		23EAD1E420DA36E4005CAD5E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9ZPF2ERCW9;
-				INFOPLIST_FILE = PenguinCamUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dengjiangzhou.PenguinCamUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PenguinCam;
-			};
-			name = Debug;
-		};
-		23EAD1E520DA36E4005CAD5E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9ZPF2ERCW9;
-				INFOPLIST_FILE = PenguinCamUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dengjiangzhou.PenguinCamUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PenguinCam;
 			};
 			name = Release;
 		};
@@ -606,24 +374,6 @@
 			buildConfigurations = (
 				23EAD1DE20DA36E4005CAD5E /* Debug */,
 				23EAD1DF20DA36E4005CAD5E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		23EAD1E020DA36E4005CAD5E /* Build configuration list for PBXNativeTarget "PenguinCamTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				23EAD1E120DA36E4005CAD5E /* Debug */,
-				23EAD1E220DA36E4005CAD5E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		23EAD1E320DA36E4005CAD5E /* Build configuration list for PBXNativeTarget "PenguinCamUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				23EAD1E420DA36E4005CAD5E /* Debug */,
-				23EAD1E520DA36E4005CAD5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
