@@ -71,8 +71,7 @@ extension UIImage {
 
 extension CGFloat{
     static func randomFloat(from:CGFloat, to:CGFloat) -> CGFloat {
-        let randomValue: CGFloat = CGFloat(Float(arc4random()) / 0xFFFFFFFF)
-        
+        let randomValue = CGFloat.random(in: 0...0xFFFFFFFF)
         return randomValue * (to - from ) + from
     } // 相当于 一个系数
 }
