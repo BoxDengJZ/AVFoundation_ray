@@ -120,7 +120,7 @@ class ViewController: UIViewController {
     
     @IBAction func onFlashOrTorchButton(_ sender: UIButton) {
         if captureMode == .photo {
-           setFlashMode()
+            setFlashMode()
         }
         else{
             setTorchMode()
@@ -166,12 +166,6 @@ class ViewController: UIViewController {
     override var prefersStatusBarHidden: Bool{
         return true
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 

@@ -114,7 +114,7 @@ extension ViewController{
                 currentMode = 0
             }
             let new_mode = AVCaptureDevice.FlashMode(rawValue: currentMode)
-            self.outputSetting.flashMode = new_mode!;
+            self.outputSetting.flashMode = new_mode!
             flashLabel.text = currentFlashOrTorchMode().name
         }
     }
